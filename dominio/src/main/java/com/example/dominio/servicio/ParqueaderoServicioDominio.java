@@ -2,7 +2,6 @@ package com.example.dominio.servicio;
 
 import com.example.dominio.entidad.Parqueadero;
 import com.example.dominio.entidad.Vehiculo;
-import com.example.dominio.excepcionNegocio.PlacaNoPermitidaExcepcion;
 import com.example.dominio.excepcionNegocio.SinCupoExcepcion;
 import com.example.dominio.repositorio.IVehiculoRepositorioPersistencia;
 import com.example.dominio.servicio.cobrarParqueaderoServicio.CobrarParqueaderoCarro;

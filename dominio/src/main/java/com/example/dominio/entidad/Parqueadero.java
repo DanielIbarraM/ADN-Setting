@@ -1,8 +1,5 @@
 package com.example.dominio.entidad;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Parqueadero {
 
     private static Parqueadero parqueadero;
