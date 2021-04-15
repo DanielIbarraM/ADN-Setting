@@ -1,4 +1,4 @@
-package com.example.dominio.servicio.ingresoParqueaderoServicio;
+package com.example.dominio.modelo.agregado.ingresoParqueaderoServicio;
 
 import com.example.dominio.modelo.entidad.Parqueadero;
 import com.example.dominio.modelo.entidad.Vehiculo;

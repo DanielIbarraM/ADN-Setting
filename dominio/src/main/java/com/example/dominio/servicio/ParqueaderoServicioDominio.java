@@ -4,10 +4,10 @@ import com.example.dominio.modelo.entidad.Parqueadero;
 import com.example.dominio.modelo.entidad.Vehiculo;
 import com.example.dominio.excepcionNegocio.SinCupoExcepcion;
 import com.example.dominio.repositorio.IVehiculoRepositorioPersistencia;
-import com.example.dominio.servicio.cobrarParqueaderoServicio.CobrarParqueaderoCarro;
-import com.example.dominio.servicio.cobrarParqueaderoServicio.CobrarParqueaderoMoto;
-import com.example.dominio.servicio.cobrarParqueaderoServicio.ICobrarParqueadero;
-import com.example.dominio.servicio.ingresoParqueaderoServicio.IngresoParqueadero;
+import com.example.dominio.modelo.agregado.cobrarParqueaderoServicio.CobrarParqueaderoCarro;
+import com.example.dominio.modelo.agregado.cobrarParqueaderoServicio.CobrarParqueaderoMoto;
+import com.example.dominio.modelo.agregado.cobrarParqueaderoServicio.ICobrarParqueadero;
+import com.example.dominio.modelo.agregado.ingresoParqueaderoServicio.IngresoParqueadero;
 import com.example.dominio.servicio.interaceServicio.IParqueaderoServicioDominio;
 
 import java.util.Calendar;
