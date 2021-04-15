@@ -28,6 +28,14 @@ android {
     }
 }
 
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
+}
+
 dependencies {
     testImplementation 'junit:junit:4.+'
     testImplementation 'org.mockito:mockito-core:3.3.3'
