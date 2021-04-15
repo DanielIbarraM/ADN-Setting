@@ -1,4 +1,4 @@
-package com.example.dominio.modelo.agregado.cobrarParqueaderoServicio;
+package com.example.dominio.modelo.agregado.cobrarparqueaderoservicio;
 
 
 import com.example.dominio.modelo.entidad.Parqueadero;
@@ -7,7 +7,7 @@ import com.example.dominio.excepcionNegocio.FechaSalidaErronea;
 
 import java.util.Calendar;
 
-public abstract class ICobrarParqueadero {
+public abstract class CobrarParqueaderoBase {
 
     private Vehiculo vehiculo;
     private Parqueadero parqueadero;

@@ -1,4 +1,4 @@
-package com.example.dominio.modelo.agregado.cobrarParqueaderoServicio;
+package com.example.dominio.modelo.agregado.cobrarparqueaderoservicio;
 
 
 import com.example.dominio.modelo.entidad.Moto;
@@ -7,7 +7,7 @@ import com.example.dominio.modelo.entidad.Vehiculo;
 
 import java.util.Calendar;
 
-public class CobrarParqueaderoMoto extends ICobrarParqueadero {
+public class CobrarParqueaderoMoto extends CobrarParqueaderoBase {
 
     private final int valorHoraMoto = 500;
     private final int valorDiaMoto = 4000;

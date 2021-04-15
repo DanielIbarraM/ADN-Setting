@@ -4,9 +4,9 @@ import com.example.dominio.modelo.entidad.Parqueadero;
 import com.example.dominio.modelo.entidad.Vehiculo;
 import com.example.dominio.excepcionNegocio.SinCupoExcepcion;
 import com.example.dominio.repositorio.IVehiculoRepositorioPersistencia;
-import com.example.dominio.modelo.agregado.cobrarParqueaderoServicio.CobrarParqueaderoCarro;
-import com.example.dominio.modelo.agregado.cobrarParqueaderoServicio.CobrarParqueaderoMoto;
-import com.example.dominio.modelo.agregado.cobrarParqueaderoServicio.ICobrarParqueadero;
+import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoCarro;
+import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoMoto;
+import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoBase;
 import com.example.dominio.modelo.agregado.ingresoParqueaderoServicio.IngresoParqueadero;
 import com.example.dominio.servicio.interaceServicio.IParqueaderoServicioDominio;
 
@@ -15,8 +15,8 @@ import java.util.List;
 
 public class ParqueaderoServicioDominio implements IParqueaderoServicioDominio {
 
-    ICobrarParqueadero iCobrarParqueaderoCarro;
-    ICobrarParqueadero iCobrarParqueaderoMoto;
+    CobrarParqueaderoBase cobrarParqueaderoBaseCarro;
+    CobrarParqueaderoBase cobrarParqueaderoBaseMoto;
     IVehiculoRepositorioPersistencia carroRepositorio;
     IVehiculoRepositorioPersistencia motoRepositorio;
     IngresoParqueadero ingresoParqueadero;
@@ -26,8 +26,8 @@ public class ParqueaderoServicioDominio implements IParqueaderoServicioDominio {
         this.carroRepositorio = carroRepositorio;
         this.motoRepositorio = motoRepositorio;
         parqueadero = Parqueadero.obtenerUnicaInstancia();
-        iCobrarParqueaderoCarro = new CobrarParqueaderoCarro(parqueadero);
-        iCobrarParqueaderoMoto = new CobrarParqueaderoMoto(parqueadero);
+        cobrarParqueaderoBaseCarro = new CobrarParqueaderoCarro(parqueadero);
+        cobrarParqueaderoBaseMoto = new CobrarParqueaderoMoto(parqueadero);
         ingresoParqueadero = new IngresoParqueadero(parqueadero);
     }
 
@@ -43,7 +43,7 @@ public class ParqueaderoServicioDominio implements IParqueaderoServicioDominio {
 
     @Override
     public int calcularValorTotalCarro(Vehiculo vehiculo) {
-        return iCobrarParqueaderoCarro.calcularTotal(vehiculo, Calendar.getInstance());
+        return cobrarParqueaderoBaseCarro.calcularTotal(vehiculo, Calendar.getInstance());
     }
 
     public List<Vehiculo> obtenerCarros () {
@@ -76,7 +76,7 @@ public class ParqueaderoServicioDominio implements IParqueaderoServicioDominio {
 
     @Override
     public int calcularValorTotalMoto(Vehiculo vehiculo) {
-        return iCobrarParqueaderoMoto.calcularTotal(vehiculo, Calendar.getInstance());
+        return cobrarParqueaderoBaseMoto.calcularTotal(vehiculo, Calendar.getInstance());
     }
 
     public List<Vehiculo> obtenerMotos () {

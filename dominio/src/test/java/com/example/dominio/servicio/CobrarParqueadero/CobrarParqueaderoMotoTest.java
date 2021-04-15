@@ -2,7 +2,7 @@ package com.example.dominio.servicio.CobrarParqueadero;
 
 import com.example.dominio.modelo.entidad.Moto;
 import com.example.dominio.modelo.entidad.Parqueadero;
-import com.example.dominio.modelo.agregado.cobrarParqueaderoServicio.CobrarParqueaderoMoto;
+import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoMoto;
 
 import org.junit.Before;
 import org.junit.Test;
