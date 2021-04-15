@@ -46,6 +46,14 @@ android {
     }
 }
 
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
+}
+
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
