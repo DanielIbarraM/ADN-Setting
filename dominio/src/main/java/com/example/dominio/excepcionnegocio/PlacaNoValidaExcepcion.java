@@ -1,4 +1,4 @@
-package com.example.dominio.excepcionNegocio;
+package com.example.dominio.excepcionnegocio;
 
 public class PlacaNoValidaExcepcion extends RuntimeException {
 

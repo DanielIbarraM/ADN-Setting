@@ -4,16 +4,16 @@ import android.content.Context;
 
 import com.example.dominio.modelo.entidad.Moto;
 import com.example.dominio.modelo.entidad.Vehiculo;
-import com.example.dominio.repositorio.IVehiculoRepositorioPersistencia;
+import com.example.dominio.repositorio.VehiculoRepositorio;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehiculoRepostorioPersistenciaMotoTemporal implements IVehiculoRepositorioPersistencia {
+public class VehiculoRepostorioMotoTemporal implements VehiculoRepositorio {
 
     List<Vehiculo> vehiculoList = new ArrayList<>();
 
-    public VehiculoRepostorioPersistenciaMotoTemporal(Context context) {
+    public VehiculoRepostorioMotoTemporal(Context context) {
     }
 
     @Override

@@ -27,8 +27,6 @@ public class CobrarParqueaderoMoto extends CobrarParqueaderoBase {
         return subTotal;
     }
 
-
-
     public int obtenerValorHoraMoto() {
         return valorHoraMoto;
     }

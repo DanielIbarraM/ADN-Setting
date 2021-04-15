@@ -3,10 +3,10 @@ package com.example.dominio.modelo.entidad;
 import java.util.Calendar;
 
 public abstract class Vehiculo {
+
     private String placa;
     private Calendar fechaIngreso;
     private Calendar fechaSalida;
-
 
     public String obtenerPlaca() {
         return placa;
@@ -23,7 +23,6 @@ public abstract class Vehiculo {
     public void modificarFechaIngreso(Calendar fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
-
 
     public Calendar obtenerFechaSalida() {
         return fechaSalida;

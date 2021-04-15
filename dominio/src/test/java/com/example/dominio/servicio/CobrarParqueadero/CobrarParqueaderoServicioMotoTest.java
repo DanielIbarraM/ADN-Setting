@@ -11,7 +11,7 @@ import java.util.Calendar;
 
 import static org.junit.Assert.assertEquals;
 
-public class CobrarParqueaderoMotoTest {
+public class CobrarParqueaderoServicioMotoTest {
 
     Parqueadero parqueadero;
     CobrarParqueaderoMoto cobrarParqueaderoMoto;

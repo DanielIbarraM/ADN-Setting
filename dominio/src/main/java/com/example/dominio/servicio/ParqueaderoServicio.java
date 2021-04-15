@@ -1,31 +1,30 @@
 package com.example.dominio.servicio;
 
-import com.example.dominio.modelo.entidad.Parqueadero;
 import com.example.dominio.modelo.entidad.Vehiculo;
-import com.example.dominio.excepcionNegocio.SinCupoExcepcion;
-import com.example.dominio.repositorio.IVehiculoRepositorioPersistencia;
+import com.example.dominio.excepcionnegocio.SinCupoExcepcion;
+import com.example.dominio.repositorio.VehiculoRepositorio;
 import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoCarro;
 import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoMoto;
 import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoBase;
 import com.example.dominio.modelo.agregado.ingresoParqueaderoServicio.IngresoParqueadero;
-import com.example.dominio.servicio.interaceServicio.IParqueaderoServicioDominio;
+import com.example.dominio.servicio.contrato.ContratoParqueadero;
 
 import java.util.Calendar;
 import java.util.List;
 
-public class ParqueaderoServicioDominio implements IParqueaderoServicioDominio {
+public class ParqueaderoServicio implements ContratoParqueadero {
 
     CobrarParqueaderoBase cobrarParqueaderoBaseCarro;
     CobrarParqueaderoBase cobrarParqueaderoBaseMoto;
-    IVehiculoRepositorioPersistencia carroRepositorio;
-    IVehiculoRepositorioPersistencia motoRepositorio;
+    VehiculoRepositorio carroRepositorio;
+    VehiculoRepositorio motoRepositorio;
     IngresoParqueadero ingresoParqueadero;
-    Parqueadero parqueadero;
+    com.example.dominio.modelo.entidad.Parqueadero parqueadero;
 
-    public ParqueaderoServicioDominio(IVehiculoRepositorioPersistencia carroRepositorio, IVehiculoRepositorioPersistencia motoRepositorio) {
+    public ParqueaderoServicio(VehiculoRepositorio carroRepositorio, VehiculoRepositorio motoRepositorio) {
         this.carroRepositorio = carroRepositorio;
         this.motoRepositorio = motoRepositorio;
-        parqueadero = Parqueadero.obtenerUnicaInstancia();
+        parqueadero = com.example.dominio.modelo.entidad.Parqueadero.obtenerUnicaInstancia();
         cobrarParqueaderoBaseCarro = new CobrarParqueaderoCarro(parqueadero);
         cobrarParqueaderoBaseMoto = new CobrarParqueaderoMoto(parqueadero);
         ingresoParqueadero = new IngresoParqueadero(parqueadero);

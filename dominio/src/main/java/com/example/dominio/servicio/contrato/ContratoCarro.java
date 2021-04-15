@@ -1,10 +1,10 @@
-package com.example.dominio.servicio.interaceServicio;
+package com.example.dominio.servicio.contrato;
 
 import com.example.dominio.modelo.entidad.Vehiculo;
 
 import java.util.List;
 
-public interface ICarroServicio {
+public interface ContratoCarro {
 
     int calcularValorTotalCarro (Vehiculo vehiculo);
 

@@ -8,14 +8,10 @@ public class Parqueadero {
     private final int horasDelDia = 24;
     private final int cantidadMaximaCarros = 20;
     private final int cantidadMaximaMotos = 10;
-
     private final String INICIAL_PLACA = "A";
     public final int LUNES = 2;
     public final int DOMINGO = 1;
-
     private final long HORA_EN_MILISEGUNDOS = 3600000;
-
-    
 
     private Parqueadero() {
     }
@@ -40,7 +36,6 @@ public class Parqueadero {
     public int obtenerCantidadMaximaMotos() {
         return cantidadMaximaMotos;
     }
-
 
     public long obtenerHoraEnMilisegundos() {
         return HORA_EN_MILISEGUNDOS;

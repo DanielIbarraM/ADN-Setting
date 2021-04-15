@@ -3,7 +3,7 @@ package com.example.dominio.modelo.agregado.cobrarparqueaderoservicio;
 
 import com.example.dominio.modelo.entidad.Parqueadero;
 import com.example.dominio.modelo.entidad.Vehiculo;
-import com.example.dominio.excepcionNegocio.FechaSalidaErronea;
+import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
 
 import java.util.Calendar;
 
@@ -25,7 +25,7 @@ public abstract class CobrarParqueaderoBase {
     }
 
     protected int cobrarParqueaderoPorVehiculo(int valorPorHora, int valorPorDia) {
-        int horasParqueadas = 0;
+        int horasParqueadas;
         int valorPagar = 0;
         try {
             verificarFechaSalidaPosteriorFechaEntrada();

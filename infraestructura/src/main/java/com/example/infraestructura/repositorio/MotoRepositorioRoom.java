@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import com.example.dominio.modelo.entidad.Moto;
 import com.example.dominio.modelo.entidad.Vehiculo;
-import com.example.dominio.repositorio.IVehiculoRepositorioPersistencia;
+import com.example.dominio.repositorio.VehiculoRepositorio;
 import com.example.infraestructura.anticorrupcion.MotoTraductor;
 import com.example.infraestructura.bd.MotoDao;
 import com.example.infraestructura.entidadBd.MotoBd;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class MotoRepositorioRoom implements IVehiculoRepositorioPersistencia {
+public class MotoRepositorioRoom implements VehiculoRepositorio {
 
     MotoDao motoDao;
 

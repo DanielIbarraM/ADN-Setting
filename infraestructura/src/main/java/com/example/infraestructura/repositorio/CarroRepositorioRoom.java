@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import com.example.dominio.modelo.entidad.Carro;
 import com.example.dominio.modelo.entidad.Vehiculo;
-import com.example.dominio.repositorio.IVehiculoRepositorioPersistencia;
+import com.example.dominio.repositorio.VehiculoRepositorio;
 import com.example.infraestructura.anticorrupcion.CarroTraductor;
 import com.example.infraestructura.bd.CarroDao;
 import com.example.infraestructura.entidadBd.CarroBd;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class CarroRepositorioRoom  implements IVehiculoRepositorioPersistencia {
+public class CarroRepositorioRoom  implements VehiculoRepositorio {
 
     private CarroDao carroDao;
 

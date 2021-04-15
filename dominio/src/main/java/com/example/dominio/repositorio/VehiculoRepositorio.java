@@ -4,7 +4,7 @@ import com.example.dominio.modelo.entidad.Vehiculo;
 
 import java.util.List;
 
-public interface IVehiculoRepositorioPersistencia {
+public interface VehiculoRepositorio {
 
     List<Vehiculo> obtenerVehiculos();
 

@@ -5,7 +5,7 @@ import com.example.dominio.modelo.entidad.Parqueadero;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ParqueaderoTest {
+public class ParqueaderoServicioTest {
 
     @Test
     public void validarInstanciaNoNulo () {

@@ -12,7 +12,7 @@ import java.util.Calendar;
 
 import static org.junit.Assert.*;
 
-public class CobrarParqueaderoCarroTest {
+public class CobrarParqueaderoServicioCarroTest {
 
     Parqueadero parqueadero;
     CobrarParqueaderoCarro cobrarParqueaderoCarro;
