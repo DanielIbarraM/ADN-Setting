@@ -1,6 +1,7 @@
-package com.example.dominio.entidad;
+package com.example.dominio.modelo;
 
-import com.example.dominio.excepcionNegocio.PlacaNoValidaExcepcion;
+import com.example.dominio.modelo.entidad.Carro;
+import com.example.dominio.modelo.entidad.Vehiculo;
 
 import org.junit.Test;
 

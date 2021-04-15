@@ -1,6 +1,6 @@
 package com.example.infraestructura.anticorrupcion;
 
-import com.example.dominio.entidad.Carro;
+import com.example.dominio.modelo.entidad.Carro;
 import com.example.infraestructura.entidadBd.CarroBd;
 
 import java.util.ArrayList;

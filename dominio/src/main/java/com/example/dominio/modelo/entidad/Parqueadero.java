@@ -1,4 +1,4 @@
-package com.example.dominio.entidad;
+package com.example.dominio.modelo.entidad;
 
 public class Parqueadero {
 

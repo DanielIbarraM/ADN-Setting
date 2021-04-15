@@ -1,4 +1,7 @@
-package com.example.dominio.entidad;
+package com.example.dominio.modelo;
+
+import com.example.dominio.modelo.entidad.Moto;
+import com.example.dominio.modelo.entidad.Vehiculo;
 
 import org.junit.Test;
 

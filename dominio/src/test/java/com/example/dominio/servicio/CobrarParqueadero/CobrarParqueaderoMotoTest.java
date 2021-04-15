@@ -1,8 +1,7 @@
 package com.example.dominio.servicio.CobrarParqueadero;
 
-import com.example.dominio.entidad.Moto;
-import com.example.dominio.entidad.Parqueadero;
-import com.example.dominio.entidad.Vehiculo;
+import com.example.dominio.modelo.entidad.Moto;
+import com.example.dominio.modelo.entidad.Parqueadero;
 import com.example.dominio.servicio.cobrarParqueaderoServicio.CobrarParqueaderoMoto;
 
 import org.junit.Before;

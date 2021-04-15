@@ -1,6 +1,6 @@
 package com.example.dominio.repositorio;
 
-import com.example.dominio.entidad.Vehiculo;
+import com.example.dominio.modelo.entidad.Vehiculo;
 
 import java.util.List;
 

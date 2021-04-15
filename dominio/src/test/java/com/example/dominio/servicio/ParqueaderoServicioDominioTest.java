@@ -1,19 +1,14 @@
 package com.example.dominio.servicio;
 
-import android.util.Log;
-
-import com.example.dominio.entidad.Carro;
-import com.example.dominio.entidad.Moto;
-import com.example.dominio.entidad.Vehiculo;
-import com.example.dominio.excepcionNegocio.PlacaNoPermitidaExcepcion;
+import com.example.dominio.modelo.entidad.Carro;
+import com.example.dominio.modelo.entidad.Moto;
+import com.example.dominio.modelo.entidad.Vehiculo;
 import com.example.dominio.repositorio.IVehiculoRepositorioPersistencia;
 import com.example.dominio.servicio.interaceServicio.IParqueaderoServicioDominio;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-
-import java.util.Calendar;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;

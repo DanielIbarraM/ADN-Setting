@@ -1,4 +1,6 @@
-package com.example.dominio.entidad;
+package com.example.dominio.modelo;
+
+import com.example.dominio.modelo.entidad.Parqueadero;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

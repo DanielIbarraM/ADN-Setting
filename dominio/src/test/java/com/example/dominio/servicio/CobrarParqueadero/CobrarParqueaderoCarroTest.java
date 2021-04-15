@@ -1,10 +1,8 @@
 package com.example.dominio.servicio.CobrarParqueadero;
 
-import com.example.dominio.entidad.Carro;
-import com.example.dominio.entidad.Moto;
-import com.example.dominio.entidad.Parqueadero;
-import com.example.dominio.entidad.Vehiculo;
-import com.example.dominio.excepcionNegocio.FechaSalidaErronea;
+import com.example.dominio.modelo.entidad.Carro;
+import com.example.dominio.modelo.entidad.Parqueadero;
+import com.example.dominio.modelo.entidad.Vehiculo;
 import com.example.dominio.servicio.cobrarParqueaderoServicio.CobrarParqueaderoCarro;
 
 import org.junit.Before;

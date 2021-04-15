@@ -2,8 +2,8 @@ package com.example.infraestructura;
 
 import android.content.Context;
 
-import com.example.dominio.entidad.Moto;
-import com.example.dominio.entidad.Vehiculo;
+import com.example.dominio.modelo.entidad.Moto;
+import com.example.dominio.modelo.entidad.Vehiculo;
 import com.example.dominio.repositorio.IVehiculoRepositorioPersistencia;
 
 import java.util.ArrayList;

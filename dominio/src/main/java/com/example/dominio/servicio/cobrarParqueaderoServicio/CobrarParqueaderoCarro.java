@@ -1,8 +1,8 @@
 package com.example.dominio.servicio.cobrarParqueaderoServicio;
 
 
-import com.example.dominio.entidad.Parqueadero;
-import com.example.dominio.entidad.Vehiculo;
+import com.example.dominio.modelo.entidad.Parqueadero;
+import com.example.dominio.modelo.entidad.Vehiculo;
 
 import java.util.Calendar;
 
