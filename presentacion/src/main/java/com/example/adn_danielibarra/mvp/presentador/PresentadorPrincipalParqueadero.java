@@ -7,6 +7,8 @@ import com.example.adn_danielibarra.mvp.modelo.RepositorioPrincipalParqueadero;
 import com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioPrincipal;
 import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorPrincipal;
 import com.example.adn_danielibarra.mvp.vista.contratos.VistaPrincipal;
+import com.example.dominio.excepcionnegocio.PlacaNoPermitidaExcepcion;
+import com.example.dominio.excepcionnegocio.PlacaNoValidaExcepcion;
 import com.example.dominio.excepcionnegocio.SinCupoExcepcion;
 import com.example.dominio.modelo.entidad.Vehiculo;
 
@@ -57,7 +59,7 @@ public class PresentadorPrincipalParqueadero implements PresentadorPrincipal {
     public void ingresarVehiculo(Vehiculo vehiculo) {
         try {
             repositorio.ingresarVehiculo(vehiculo);
-        }catch (SinCupoExcepcion excepcion){
+        }catch (PlacaNoPermitidaExcepcion | PlacaNoValidaExcepcion | SinCupoExcepcion excepcion){
             vista.mostrarDialogoAlerta(R.string.informacion, excepcion.getMessage());
         }
     }
