@@ -28,7 +28,9 @@ public class CarroRepositorioRoom  implements VehiculoRepositorio {
         ConsultaListaCarrosAsincronica consultaListaCarros = new ConsultaListaCarrosAsincronica();
         try {
             listaVehiculos.addAll(CarroTraductor.mapearListaDeCarroDbACarroDominio(consultaListaCarros.execute().get()));
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return listaVehiculos;
     }
@@ -53,6 +55,7 @@ public class CarroRepositorioRoom  implements VehiculoRepositorio {
         try {
             carroBd = CarroTraductor.mapearCarroDominioACarroDb((Carro) vehiculo);
         } catch (Exception e) {
+            e.printStackTrace();
         }
         CarroBd finalCarroBd = carroBd;
         AdministradorBaseDeDatos.EJECUTOR_SEGUNDO_PLANO.execute(() -> {
