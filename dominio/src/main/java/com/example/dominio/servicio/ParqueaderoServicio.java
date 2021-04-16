@@ -62,7 +62,7 @@ public class ParqueaderoServicio implements ContratoParqueadero {
         motoRepositorio.eliminarVehiculo(vehiculo);
     }
 
-    public void guardarMoto(Vehiculo vehiculo) throws Exception{
+    public void guardarMoto(Vehiculo vehiculo){
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
         validarIngresoMoto(vehiculo);
         motoRepositorio.guardarVehiculo(vehiculo);
@@ -77,7 +77,7 @@ public class ParqueaderoServicio implements ContratoParqueadero {
     }
 
     @Override
-    public void validarIngresoMoto(Vehiculo vehiculo) throws Exception {
+    public void validarIngresoMoto(Vehiculo vehiculo) {
 
         if ((obtenerCantidadMotos()>=parqueadero.obtenerCantidadMaximaMotos())){
             throw new SinCupoExcepcion();
