@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/contenedorTipoVehiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tipo_vehiculo" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/tipoCarro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/carro"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/tipoMoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/moto" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contenedorPlaca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contenedorTipoVehiculo"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="@string/placa" />
+
+        <EditText
+            android:id="@+id/ed_placa"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:digits="qwertyuiopasdfghjklzxcvbnm 1234567890 QWERTYUIOPASDFGHJKLZXCVBNM"
+            android:hint="QWE-012"
+            android:inputType="text"
+            android:textAllCaps="true"
+            android:maxLength="10" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contenedorCilindraje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contenedorPlaca"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="@string/cilindraje" />
+
+        <EditText
+            android:id="@+id/et_cilindraje"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:hint="ej: 500"
+            android:inputType="number"
+            android:maxLength="4"
+             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contenedorCilindraje"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        android:gravity="center"
+        >
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:text="@string/cancelar"
+                />
+        <View
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:text="@string/registrar"
+                />
+
+    </LinearLayout>
+
+</RelativeLayout>

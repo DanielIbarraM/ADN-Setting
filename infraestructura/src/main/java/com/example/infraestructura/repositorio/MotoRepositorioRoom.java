@@ -56,7 +56,7 @@ public class MotoRepositorioRoom implements VehiculoRepositorio {
 
         ObtenerCantidadMotoAsincronico obtenerCantidadMotoAsincronico = new ObtenerCantidadMotoAsincronico();
         try {
-            cantidadMotos = obtenerCantidadMotoAsincronico.get();
+            cantidadMotos = obtenerCantidadMotoAsincronico.execute().get();
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }

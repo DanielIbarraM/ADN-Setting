@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp"
+    android:id="@+id/card_contenedor"
+    android:layout_margin="2dp"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingStart="5dp">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:id="@+id/tv_placa"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:textAllCaps="true"
+                android:text="QWE-098"
+                android:layout_weight="1.5"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:layout_margin="6dp"
+
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="2.5">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/tipo_vehiculo"
+                    />
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:id="@+id/tv_tipo_vehiculo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:textAllCaps="true"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fecha_ingreso"
+                />
+
+            <TextView
+                android:id="@+id/tv_fecha_ingreso"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_cilindraje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cilindraje"
+                />
+
+            <TextView
+                android:id="@+id/tv_cilindraje"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_cobrar"
+            android:layout_gravity="end"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/cobrar"/>
+
+    </LinearLayout>
+
+
+
+
+   <!-- <TextView
+        android:id="@+id/textView2"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.2" />
+-->
+</androidx.cardview.widget.CardView>

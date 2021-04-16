@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">ADN-DanielIbarra</string>
+    <string name="ingresar">Ingresar Vehiculo</string>
+    <string name="tipo_vehiculo">Tipo de vehiculo:</string>
+    <string name="moto">Moto</string>
+    <string name="carro">Carro</string>
+    <string name="cobrar">Cobrar</string>
+    <string name="placa">Placa</string>
+    <string name="cilindraje">Cilindraje:</string>
+    <string name="fecha_ingreso">Fecha de ingreso:</string>
+    <string name="obtener_vehiculos">Obteniendo vehiculos Parqueados</string>
+    <string name="ingresando_vehiculo">Ingresando vehiculo</string>
+    <string name="cobrando_vehiculo">Cobrando vehiculo</string>
+    <string name="informacion">Información</string>
+    <string name="registrando_vehiculo">Registrando vehiculo</string>
+    <string name="no_hay_vehiculos">No hay vehiculos registrados</string>
+    <string name="cantidad_carros">Cant. carros: </string>
+    <string name="cantidad_motos">Cant. motos: </string>
+    <string name="cancelar">Cancelar</string>
+    <string name="registrar">Registrar vehiculo</string>
 </resources>

@@ -69,7 +69,7 @@ public class CarroRepositorioRoom  implements VehiculoRepositorio {
 
         ConsultaCantidadCarrosAsincronico consultaCantidadCarrosAsincronico = new ConsultaCantidadCarrosAsincronico();
         try {
-            cantidadCarros = consultaCantidadCarrosAsincronico.get();
+            cantidadCarros = consultaCantidadCarrosAsincronico.execute().get();
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }

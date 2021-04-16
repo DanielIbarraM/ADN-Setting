@@ -2,7 +2,7 @@ package com.example.dominio.modelo.entidad;
 
 import java.util.Calendar;
 
-public abstract class Vehiculo {
+public abstract class Vehiculo implements Comparable{
 
     private String placa;
     private Calendar fechaIngreso;

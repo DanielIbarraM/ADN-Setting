@@ -16,4 +16,10 @@ public class Moto extends Vehiculo {
     public void modificarCilindraje(int cilindraje) {
         this.cilindraje = cilindraje;
     }
+
+    @Override
+    public int compareTo(Object o) {
+        Vehiculo vehiculo = (Vehiculo) o;
+        return this.obtenerFechaIngreso().compareTo(vehiculo.obtenerFechaIngreso());
+    }
 }
