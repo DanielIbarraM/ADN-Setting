@@ -9,8 +9,8 @@ import java.util.Calendar;
 
 public class CobrarParqueaderoCarro extends CobrarParqueaderoBase {
 
-    private final int valorHoraCarro = 1000;
-    private final int valorDiaCarro = 8000;
+    private static final int VALOR_HORA_CARRO = 1000;
+    private static final int VALOR_DIA_CARRO = 8000;
 
     public CobrarParqueaderoCarro(Parqueadero parqueadero) {
         this.modificarParqueadero(parqueadero);
@@ -24,10 +24,10 @@ public class CobrarParqueaderoCarro extends CobrarParqueaderoBase {
     }
 
     public int obtenerValorHoraCarro() {
-        return valorHoraCarro;
+        return VALOR_HORA_CARRO;
     }
 
     public int obtenerValorDiaCarro() {
-        return valorDiaCarro;
+        return VALOR_DIA_CARRO;
     }
 }

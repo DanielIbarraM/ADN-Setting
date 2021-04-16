@@ -9,10 +9,10 @@ import java.util.Calendar;
 
 public class CobrarParqueaderoMoto extends CobrarParqueaderoBase {
 
-    private final int valorHoraMoto = 500;
-    private final int valorDiaMoto = 4000;
-    private final int CilindrajeMinimoPagoExtra = 500;
-    private final int valorExtraPorCilindraje = 2000;
+    private static final int VALOR_HORA_MOTO = 500;
+    private static final int VALOR_DIA_MOTO = 4000;
+    private static final int CILINDRAJE_MINIMO_PAGO_EXTRA = 500;
+    private static final int VALOR_EXTRA_POR_CILINDRAJE = 2000;
 
     public CobrarParqueaderoMoto(Parqueadero parqueadero) {
         this.modificarParqueadero(parqueadero);
@@ -23,16 +23,16 @@ public class CobrarParqueaderoMoto extends CobrarParqueaderoBase {
         vehiculo.modificarFechaSalida(fechaSalida);
         this.modificarVehiculo(vehiculo);
         int subTotal = cobrarParqueaderoPorVehiculo(obtenerValorHoraMoto(), obtenerValorDiaMoto());
-        if (obtenerVehiculo() instanceof Moto && ((Moto) obtenerVehiculo()).obtenerCilindraje() > CilindrajeMinimoPagoExtra) subTotal += valorExtraPorCilindraje;
+        if (obtenerVehiculo() instanceof Moto && ((Moto) obtenerVehiculo()).obtenerCilindraje() > CILINDRAJE_MINIMO_PAGO_EXTRA) subTotal += VALOR_EXTRA_POR_CILINDRAJE;
         return subTotal;
     }
 
     public int obtenerValorHoraMoto() {
-        return valorHoraMoto;
+        return VALOR_HORA_MOTO;
     }
 
     public int obtenerValorDiaMoto() {
-        return valorDiaMoto;
+        return VALOR_DIA_MOTO;
     }
 
 }

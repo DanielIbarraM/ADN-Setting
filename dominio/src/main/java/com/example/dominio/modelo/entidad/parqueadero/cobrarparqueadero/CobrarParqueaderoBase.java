@@ -31,9 +31,13 @@ public abstract class CobrarParqueaderoBase {
         verificarFechaSalidaPosteriorFechaEntrada();
         horasParqueadas = calcularTotalHorasPorVehiculo();
 
-        if (horasParqueadas < parqueadero.obtenerhoraInicialDeCobroPorDia())  valorPagar = horasParqueadas * valorPorHora;
+        if (horasParqueadas < parqueadero.obtenerhoraInicialDeCobroPorDia()) {
+            valorPagar = horasParqueadas * valorPorHora;
+        }
 
-        if (horasParqueadas >= parqueadero.obtenerhoraInicialDeCobroPorDia() && horasParqueadas <= parqueadero.obtenerhorasDelDia()) valorPagar = valorPorDia;
+        if (horasParqueadas >= parqueadero.obtenerhoraInicialDeCobroPorDia() && horasParqueadas <= parqueadero.obtenerhorasDelDia()) {
+            valorPagar = valorPorDia;
+        }
 
         if (horasParqueadas > parqueadero.obtenerhorasDelDia()) {
             int dias = horasParqueadas / parqueadero.obtenerhorasDelDia();

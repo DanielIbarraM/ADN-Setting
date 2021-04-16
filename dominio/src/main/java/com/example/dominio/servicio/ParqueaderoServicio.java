@@ -4,7 +4,7 @@ import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
 import com.example.dominio.excepcionnegocio.SinCupoExcepcion;
 import com.example.dominio.modelo.entidad.Vehiculo;
 import com.example.dominio.modelo.entidad.parqueadero.Parqueadero;
-import com.example.dominio.modelo.entidad.parqueadero.ingresoParqueadero.IngresoParqueadero;
+import com.example.dominio.modelo.entidad.parqueadero.ingresoparqueadero.IngresoParqueadero;
 import com.example.dominio.repositorio.VehiculoRepositorio;
 import com.example.dominio.servicio.contrato.ContratoParqueadero;
 

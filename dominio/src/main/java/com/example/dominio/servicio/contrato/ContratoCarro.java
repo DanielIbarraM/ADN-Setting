@@ -8,12 +8,12 @@ public interface ContratoCarro {
 
     List<Vehiculo> obtenerCarros();
 
-    void guardarCarro (Vehiculo vehiculo) throws Exception;
+    void guardarCarro (Vehiculo vehiculo);
 
     void eliminarCarro (Vehiculo vehiculo);
 
     int obtenerCantidadCarros();
 
-    void validarIngresoCarro (Vehiculo vehiculo) throws Exception;
+    void validarIngresoCarro (Vehiculo vehiculo);
 
 }

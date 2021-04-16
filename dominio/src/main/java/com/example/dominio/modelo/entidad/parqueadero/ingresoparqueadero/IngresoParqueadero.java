@@ -1,4 +1,4 @@
-package com.example.dominio.modelo.entidad.parqueadero.ingresoParqueadero;
+package com.example.dominio.modelo.entidad.parqueadero.ingresoparqueadero;
 
 import com.example.dominio.excepcionnegocio.PlacaNoPermitidaExcepcion;
 import com.example.dominio.excepcionnegocio.PlacaNoValidaExcepcion;

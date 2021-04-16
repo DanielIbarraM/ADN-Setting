@@ -9,7 +9,7 @@ import com.example.dominio.modelo.entidad.Vehiculo;
 import com.example.dominio.modelo.entidad.parqueadero.cobrarparqueadero.CobrarParqueaderoBase;
 import com.example.dominio.modelo.entidad.parqueadero.cobrarparqueadero.CobrarParqueaderoCarro;
 import com.example.dominio.modelo.entidad.parqueadero.cobrarparqueadero.CobrarParqueaderoMoto;
-import com.example.dominio.modelo.entidad.parqueadero.ingresoParqueadero.IngresoParqueadero;
+import com.example.dominio.modelo.entidad.parqueadero.ingresoparqueadero.IngresoParqueadero;
 
 import java.util.Calendar;
 
@@ -41,8 +41,12 @@ public class Parqueadero {
 
     public int calcularTotalVehiculo (Vehiculo vehiculo, Calendar calendar) throws FechaSalidaErronea {
         int total = 0;
-        if (vehiculo instanceof Carro) total = cobrarParqueaderoBaseCarro.calcularTotal(vehiculo, calendar);
-        if (vehiculo instanceof Moto) total = cobrarParqueaderoBaseMoto.calcularTotal(vehiculo, calendar);
+        if (vehiculo instanceof Carro) {
+            total = cobrarParqueaderoBaseCarro.calcularTotal(vehiculo, calendar);
+        }
+        if (vehiculo instanceof Moto) {
+            total = cobrarParqueaderoBaseMoto.calcularTotal(vehiculo, calendar);
+        }
         return total;
     }
 
