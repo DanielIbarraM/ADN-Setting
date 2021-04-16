@@ -61,4 +61,9 @@ public class PresentadorPrincipalParqueadero implements PresentadorPrincipal {
             vista.mostrarDialogoAlerta(R.string.informacion, excepcion.getMessage());
         }
     }
+
+    @Override
+    public int calcularTotal(Vehiculo vehiculo) {
+        return repositorio.calcularTotalVehiculo(vehiculo);
+    }
 }

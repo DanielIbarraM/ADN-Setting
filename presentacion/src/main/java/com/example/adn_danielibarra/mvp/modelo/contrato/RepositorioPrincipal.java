@@ -13,4 +13,6 @@ public interface RepositorioPrincipal {
     int obtenerCantidadMotos();
 
     void ingresarVehiculo (Vehiculo vehiculo);
+
+    int calcularTotalVehiculo (Vehiculo vehiculo);
 }

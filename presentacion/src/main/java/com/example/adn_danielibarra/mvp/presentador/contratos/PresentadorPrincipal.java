@@ -17,4 +17,6 @@ public interface PresentadorPrincipal {
     int obtenerCantidadMotos();
 
     void ingresarVehiculo (Vehiculo vehiculo);
+
+    int calcularTotal (Vehiculo vehiculo);
 }

@@ -15,16 +15,19 @@ import com.example.adn_danielibarra.R;
 import com.example.dominio.modelo.entidad.Moto;
 import com.example.dominio.modelo.entidad.Vehiculo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdaptadorVehiculo extends RecyclerView.Adapter<AdaptadorVehiculo.ViewHolder> {
 
     List<Vehiculo> vehiculoLista;
     ObtenerVehiculoIngresado vehiculoIngresado;
+    List<String> dias;
 
     public AdaptadorVehiculo(List<Vehiculo> vehiculoLista, ObtenerVehiculoIngresado vehiculoIngresado) {
         this.vehiculoLista = vehiculoLista;
         this.vehiculoIngresado = vehiculoIngresado;
+        dias=new ArrayList<>();
 
     }
 

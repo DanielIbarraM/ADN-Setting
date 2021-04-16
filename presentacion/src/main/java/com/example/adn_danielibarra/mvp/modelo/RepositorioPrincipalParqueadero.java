@@ -75,4 +75,9 @@ public class RepositorioPrincipalParqueadero implements RepositorioPrincipal {
             parqueaderoServicio.guardarCarro(vehiculo);
         }
     }
+
+    @Override
+    public int calcularTotalVehiculo(Vehiculo vehiculo) {
+        return parqueaderoServicio.calcularValorTotal(vehiculo);
+    }
 }

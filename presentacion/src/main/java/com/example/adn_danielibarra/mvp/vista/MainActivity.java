@@ -1,5 +1,6 @@
 package com.example.adn_danielibarra.mvp.vista;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,13 +37,11 @@ public class MainActivity extends AppCompatActivity implements VistaPrincipal {
     PresentadorPrincipal presentador;
     Button btnIngresar;
     DialogoIngresar dialogoIngresar;
-    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bundle=savedInstanceState;
 
         inicializar();
         obtenerVehiculos();
@@ -53,6 +53,11 @@ public class MainActivity extends AppCompatActivity implements VistaPrincipal {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
     private void inicializar () {
@@ -101,18 +106,7 @@ public class MainActivity extends AppCompatActivity implements VistaPrincipal {
 
     @Override
     public void eliminarVehiculo(Vehiculo vehiculo) {
-        mostrarDialogoCargando(R.string.informacion, R.string.cobrando_vehiculo);
-        new Handler().postDelayed(() -> {
-            cancelarDialogoCargando();
-            presentador.eliminarVehiculo(vehiculo);
-        }, 500);
-
-        new Handler().postDelayed(() -> {
-            obtenerVehiculos();
-            obtenerCantidadMotos();
-            obtenerCantidadCarros();
-            cancelarDialogoCargando();
-        }, 1000);
+        cobrarDialogo(vehiculo);
     }
 
     @Override
@@ -169,5 +163,35 @@ public class MainActivity extends AppCompatActivity implements VistaPrincipal {
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
+    }
+
+    private void cobrarDialogo (Vehiculo vehiculo) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("El valor a cobrar es: "+presentador.calcularTotal(vehiculo))
+                .setPositiveButton(R.string.cobrar, (dialog, which) -> {
+                    finalizacionCobro(vehiculo);
+                });
+        builder.setNegativeButton(R.string.cancelar, (dialog, which) -> {
+
+        });
+        builder.create();
+        Dialog dialog =builder.create();
+        dialog.show();
+
+    }
+
+    private void finalizacionCobro (Vehiculo vehiculo) {
+        mostrarDialogoCargando(R.string.informacion, R.string.cobrando_vehiculo);
+        new Handler().postDelayed(() -> {
+            cancelarDialogoCargando();
+            presentador.eliminarVehiculo(vehiculo);
+        }, 500);
+
+        new Handler().postDelayed(() -> {
+            obtenerVehiculos();
+            obtenerCantidadMotos();
+            obtenerCantidadCarros();
+            cancelarDialogoCargando();
+        }, 1000);
     }
 }
