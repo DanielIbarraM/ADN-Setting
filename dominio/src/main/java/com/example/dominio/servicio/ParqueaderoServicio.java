@@ -1,12 +1,11 @@
 package com.example.dominio.servicio;
 
-import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
 import com.example.dominio.excepcionnegocio.SinCupoExcepcion;
+import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.entidad.parqueadero.Parqueadero;
+import com.example.dominio.modelo.entidad.parqueadero.ingresoParqueadero.IngresoParqueadero;
 import com.example.dominio.repositorio.VehiculoRepositorio;
-import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoCarro;
-import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoMoto;
-import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoBase;
-import com.example.dominio.modelo.agregado.ingresoParqueaderoServicio.IngresoParqueadero;
 import com.example.dominio.servicio.contrato.ContratoParqueadero;
 
 import java.util.Calendar;
@@ -14,19 +13,15 @@ import java.util.List;
 
 public class ParqueaderoServicio implements ContratoParqueadero {
 
-    CobrarParqueaderoBase cobrarParqueaderoBaseCarro;
-    CobrarParqueaderoBase cobrarParqueaderoBaseMoto;
     VehiculoRepositorio carroRepositorio;
     VehiculoRepositorio motoRepositorio;
     IngresoParqueadero ingresoParqueadero;
-    com.example.dominio.modelo.entidad.Parqueadero parqueadero;
+    Parqueadero parqueadero;
 
     public ParqueaderoServicio(VehiculoRepositorio carroRepositorio, VehiculoRepositorio motoRepositorio) {
         this.carroRepositorio = carroRepositorio;
         this.motoRepositorio = motoRepositorio;
-        parqueadero = com.example.dominio.modelo.entidad.Parqueadero.obtenerUnicaInstancia();
-        cobrarParqueaderoBaseCarro = new CobrarParqueaderoCarro(parqueadero);
-        cobrarParqueaderoBaseMoto = new CobrarParqueaderoMoto(parqueadero);
+        parqueadero = new Parqueadero();
         ingresoParqueadero = new IngresoParqueadero(parqueadero);
     }
 
@@ -34,15 +29,15 @@ public class ParqueaderoServicio implements ContratoParqueadero {
         carroRepositorio.eliminarVehiculo(vehiculo);
     }
 
-    public void guardarCarro(Vehiculo vehiculo) throws Exception{
+    public void guardarCarro(Vehiculo vehiculo) {
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
         validarIngresoCarro(vehiculo);
         carroRepositorio.guardarVehiculo(vehiculo);
     }
 
     @Override
-    public int calcularValorTotalCarro(Vehiculo vehiculo) {
-        return cobrarParqueaderoBaseCarro.calcularTotal(vehiculo, Calendar.getInstance());
+    public int calcularValorTotal (Vehiculo vehiculo) throws FechaSalidaErronea {
+        return parqueadero.calcularTotalVehiculo(vehiculo, Calendar.getInstance());
     }
 
     public List<Vehiculo> obtenerCarros () {
@@ -54,7 +49,7 @@ public class ParqueaderoServicio implements ContratoParqueadero {
     }
 
     @Override
-    public void validarIngresoCarro(Vehiculo vehiculo) throws Exception{
+    public void validarIngresoCarro(Vehiculo vehiculo) {
         if ((obtenerCantidadCarros()>=parqueadero.obtenerCantidadMaximaCarros())){
             throw new SinCupoExcepcion();
         }
@@ -71,11 +66,6 @@ public class ParqueaderoServicio implements ContratoParqueadero {
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
         validarIngresoMoto(vehiculo);
         motoRepositorio.guardarVehiculo(vehiculo);
-    }
-
-    @Override
-    public int calcularValorTotalMoto(Vehiculo vehiculo) {
-        return cobrarParqueaderoBaseMoto.calcularTotal(vehiculo, Calendar.getInstance());
     }
 
     public List<Vehiculo> obtenerMotos () {

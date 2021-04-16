@@ -1,9 +1,9 @@
-package com.example.dominio.modelo.agregado.cobrarparqueaderoservicio;
+package com.example.dominio.modelo.entidad.parqueadero.cobrarparqueadero;
 
 
-import com.example.dominio.modelo.entidad.Parqueadero;
-import com.example.dominio.modelo.entidad.Vehiculo;
 import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
+import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.entidad.parqueadero.Parqueadero;
 
 import java.util.Calendar;
 
@@ -18,21 +18,18 @@ public abstract class CobrarParqueaderoBase {
         return (int) Math.ceil(resultado);
     }
 
-    private void verificarFechaSalidaPosteriorFechaEntrada () throws FechaSalidaErronea{
+    private void verificarFechaSalidaPosteriorFechaEntrada () throws FechaSalidaErronea {
         if (obtenerVehiculo().obtenerFechaSalida().compareTo(obtenerVehiculo().obtenerFechaIngreso()) <= 0){
             throw new FechaSalidaErronea();
         }
     }
 
-    protected int cobrarParqueaderoPorVehiculo(int valorPorHora, int valorPorDia) {
+    protected int cobrarParqueaderoPorVehiculo(int valorPorHora, int valorPorDia) throws FechaSalidaErronea {
         int horasParqueadas;
         int valorPagar = 0;
-        try {
-            verificarFechaSalidaPosteriorFechaEntrada();
-            horasParqueadas = calcularTotalHorasPorVehiculo();
-        } catch (FechaSalidaErronea e){
-            horasParqueadas = 1;
-        }
+
+        verificarFechaSalidaPosteriorFechaEntrada();
+        horasParqueadas = calcularTotalHorasPorVehiculo();
 
         if (horasParqueadas < parqueadero.obtenerhoraInicialDeCobroPorDia())  valorPagar = horasParqueadas * valorPorHora;
 

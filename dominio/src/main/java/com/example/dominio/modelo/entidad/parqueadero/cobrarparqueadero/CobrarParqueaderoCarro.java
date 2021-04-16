@@ -1,8 +1,9 @@
-package com.example.dominio.modelo.agregado.cobrarparqueaderoservicio;
+package com.example.dominio.modelo.entidad.parqueadero.cobrarparqueadero;
 
 
-import com.example.dominio.modelo.entidad.Parqueadero;
+import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
 import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.entidad.parqueadero.Parqueadero;
 
 import java.util.Calendar;
 
@@ -16,7 +17,7 @@ public class CobrarParqueaderoCarro extends CobrarParqueaderoBase {
     }
 
     @Override
-    public int calcularTotal(Vehiculo vehiculo, Calendar fechaSalida) {
+    public int calcularTotal(Vehiculo vehiculo, Calendar fechaSalida) throws FechaSalidaErronea {
         vehiculo.modificarFechaSalida(fechaSalida);
         this.modificarVehiculo(vehiculo);
         return cobrarParqueaderoPorVehiculo(obtenerValorHoraCarro(), obtenerValorDiaCarro());

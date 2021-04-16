@@ -1,15 +1,15 @@
-package com.example.dominio.servicio.ingresoParqueadero;
+package com.example.dominio.modelo.paqueadero.ingresoParqueadero;
 
 import com.example.dominio.modelo.entidad.Carro;
-import com.example.dominio.modelo.entidad.Parqueadero;
-import com.example.dominio.modelo.agregado.ingresoParqueaderoServicio.IngresoParqueadero;
+import com.example.dominio.modelo.entidad.parqueadero.Parqueadero;
+import com.example.dominio.modelo.entidad.parqueadero.ingresoParqueadero.IngresoParqueadero;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Calendar;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 public class IngresoParqueaderoServicioTest {
 
@@ -18,7 +18,7 @@ public class IngresoParqueaderoServicioTest {
 
     @Before
     public void inicializar () {
-        parqueadero = Parqueadero.obtenerUnicaInstancia();
+        parqueadero = new Parqueadero();
         ingresoParqueadero = new IngresoParqueadero(parqueadero);
     }
 

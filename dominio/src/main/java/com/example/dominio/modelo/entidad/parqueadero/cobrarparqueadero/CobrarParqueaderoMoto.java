@@ -1,9 +1,9 @@
-package com.example.dominio.modelo.agregado.cobrarparqueaderoservicio;
+package com.example.dominio.modelo.entidad.parqueadero.cobrarparqueadero;
 
 
 import com.example.dominio.modelo.entidad.Moto;
-import com.example.dominio.modelo.entidad.Parqueadero;
 import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.entidad.parqueadero.Parqueadero;
 
 import java.util.Calendar;
 

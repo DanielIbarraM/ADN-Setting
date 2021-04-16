@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface ContratoCarro {
 
-    int calcularValorTotalCarro (Vehiculo vehiculo);
-
     List<Vehiculo> obtenerCarros();
 
     void guardarCarro (Vehiculo vehiculo) throws Exception;

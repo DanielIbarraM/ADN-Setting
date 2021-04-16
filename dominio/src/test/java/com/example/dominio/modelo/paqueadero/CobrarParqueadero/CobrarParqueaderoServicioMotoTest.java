@@ -1,8 +1,8 @@
-package com.example.dominio.servicio.CobrarParqueadero;
+package com.example.dominio.modelo.paqueadero.CobrarParqueadero;
 
+import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
 import com.example.dominio.modelo.entidad.Moto;
-import com.example.dominio.modelo.entidad.Parqueadero;
-import com.example.dominio.modelo.agregado.cobrarparqueaderoservicio.CobrarParqueaderoMoto;
+import com.example.dominio.modelo.entidad.parqueadero.Parqueadero;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,18 +10,17 @@ import org.junit.Test;
 import java.util.Calendar;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class CobrarParqueaderoServicioMotoTest {
 
     Parqueadero parqueadero;
-    CobrarParqueaderoMoto cobrarParqueaderoMoto;
     Calendar calendar;
     Moto vehiculo;
 
     @Before
     public void inicializar () {
-        parqueadero = Parqueadero.obtenerUnicaInstancia();
-        cobrarParqueaderoMoto = new CobrarParqueaderoMoto(parqueadero);
+        parqueadero = new Parqueadero();
         calendar = Calendar.getInstance();
         vehiculo = new Moto("QWE012",0);
     }
@@ -34,9 +33,12 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*4;
         calendar.setTimeInMillis(calendar.getTimeInMillis()-tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
-        //Assert
-        assertEquals(500, valorTotal);
+        try {
+            int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
+            fail();
+        } catch (FechaSalidaErronea e) {
+            assertEquals(FechaSalidaErronea.class.getName(), e.getClass().getName());
+        }
     }
 
     @Test
@@ -47,9 +49,13 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*4;
         calendar.setTimeInMillis(calendar.getTimeInMillis()-tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        try {
+            parqueadero.calcularTotalVehiculo(vehiculo, calendar);
+            fail();
+        } catch (FechaSalidaErronea e) {
+            assertEquals(FechaSalidaErronea.class.getName(), e.getClass().getName());
+        }
         //Assert
-        assertEquals(500, valorTotal);
     }
 
     @Test
@@ -60,9 +66,13 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*4;
         calendar.setTimeInMillis(calendar.getTimeInMillis()-tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        try {
+            parqueadero.calcularTotalVehiculo(vehiculo, calendar);
+            fail();
+        } catch (FechaSalidaErronea e) {
+            assertEquals(FechaSalidaErronea.class.getName(), e.getClass().getName());
+        }
         //Assert
-        assertEquals(2500, valorTotal);
     }
 
     @Test
@@ -71,9 +81,14 @@ public class CobrarParqueaderoServicioMotoTest {
         vehiculo.modificarCilindraje(300);
         vehiculo.modificarFechaIngreso(calendar);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        try {
+            int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
+            fail();
+        } catch (FechaSalidaErronea e) {
+            assertEquals(FechaSalidaErronea.class.getName(), e.getClass().getName());
+        }
+
         //Assert
-        assertEquals(500, valorTotal);
     }
 
     @Test
@@ -84,7 +99,7 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*4;
         calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
         assertEquals(4000, valorTotal);
     }
@@ -96,7 +111,7 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*4;
         calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
         assertEquals(2000, valorTotal);
     }
@@ -108,7 +123,7 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*8;
         calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
         assertEquals(4000, valorTotal);
     }
@@ -121,7 +136,7 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*8;
         calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
         assertEquals(6000, valorTotal);
     }
@@ -133,7 +148,7 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*20;
         calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
         assertEquals(4000, valorTotal);
     }
@@ -146,7 +161,7 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*20;
         calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
         assertEquals(6000, valorTotal);
     }
@@ -158,7 +173,7 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*26;
         calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
         assertEquals(5000, valorTotal);
     }
@@ -171,7 +186,7 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*26;
         calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
         assertEquals(7000, valorTotal);
     }
@@ -183,7 +198,7 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*75;
         calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
         assertEquals(13500, valorTotal);
     }
@@ -196,7 +211,7 @@ public class CobrarParqueaderoServicioMotoTest {
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*75;
         calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
         //Act
-        int valorTotal = cobrarParqueaderoMoto.calcularTotal(vehiculo, calendar);
+        int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
         assertEquals(15500, valorTotal);
     }
