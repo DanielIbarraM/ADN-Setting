@@ -17,16 +17,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adn_danielibarra.R;
-import com.example.adn_danielibarra.mvp.presentador.PresentadorPrincipalParqueadero;
-import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorPrincipal;
-import com.example.adn_danielibarra.mvp.vista.contratos.VistaPrincipal;
+import com.example.adn_danielibarra.mvp.presentador.PresentadorParqueaderoImpl;
+import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorParqueadero;
+import com.example.adn_danielibarra.mvp.vista.contratos.VistaParqueadero;
 import com.example.adn_danielibarra.mvp.vista.dialogo.DialogoIngresar;
 import com.example.dominio.modelo.Vehiculo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements VistaPrincipal {
+public class MainActivity extends AppCompatActivity implements VistaParqueadero {
 
     private ProgressDialog progressDialog;
     RecyclerView vistaReciclada;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements VistaPrincipal {
     TextView tvCantidadCarros;
     TextView tvCantidadMotos;
     AdaptadorVehiculo adaptadorVehiculo;
-    PresentadorPrincipal presentador;
+    PresentadorParqueadero presentador;
     Button btnIngresar;
     DialogoIngresar dialogoIngresar;
 
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements VistaPrincipal {
         progressDialog.setCancelable(false);
         ObtenerVehiculoIngresado obtenerVehiculoIngresado = vehiculo -> ingresarVehiculo(vehiculo);
         dialogoIngresar = new DialogoIngresar(obtenerVehiculoIngresado);
-        presentador = new PresentadorPrincipalParqueadero(this, getApplicationContext());
+        presentador = new PresentadorParqueaderoImpl(this, getApplicationContext());
         btnIngresar.setOnClickListener(v -> {
             dialogoIngresar.show(getSupportFragmentManager(),"");
         });
@@ -83,9 +83,7 @@ public class MainActivity extends AppCompatActivity implements VistaPrincipal {
     @Override
     public void obtenerVehiculos() {
         mostrarDialogoCargando(R.string.informacion, R.string.obtener_vehiculos);
-        new Handler().postDelayed(() -> {
-            presentador.obtenerVehiculos();
-        }, 1000);
+        presentador.obtenerVehiculos();
     }
 
     @Override
@@ -111,31 +109,25 @@ public class MainActivity extends AppCompatActivity implements VistaPrincipal {
 
     @Override
     public void obtenerCantidadCarros() {
-        new Handler().postDelayed(() -> {
-            tvCantidadCarros.setText(String.valueOf(presentador.obtenerCantidadCarros()));
-        }, 1000);
+        tvCantidadCarros.setText(String.valueOf(presentador.obtenerCantidadCarros()));
     }
 
     @Override
     public void obtenerCantidadMotos() {
-        new Handler().postDelayed(() -> {
-            tvCantidadMotos.setText(String.valueOf(presentador.obtenerCantidadMotos()));
-        }, 1000);
+        tvCantidadMotos.setText(String.valueOf(presentador.obtenerCantidadMotos()));
     }
 
     @Override
     public void ingresarVehiculo(Vehiculo vehiculo) {
         mostrarDialogoCargando(R.string.informacion, R.string.ingresando_vehiculo);
-        new Handler().postDelayed(() -> {
-             presentador.ingresarVehiculo(vehiculo);
-            cancelarDialogoCargando();
-        }, 500);
+        presentador.ingresarVehiculo(vehiculo);
+        cancelarDialogoCargando();
         new Handler().postDelayed(() -> {
             obtenerVehiculos();
             obtenerCantidadMotos();
             obtenerCantidadCarros();
             cancelarDialogoCargando();
-        }, 1000);
+        }, 500);
     }
 
     @Override
@@ -182,16 +174,14 @@ public class MainActivity extends AppCompatActivity implements VistaPrincipal {
 
     private void finalizacionCobro (Vehiculo vehiculo) {
         mostrarDialogoCargando(R.string.informacion, R.string.cobrando_vehiculo);
-        new Handler().postDelayed(() -> {
-            cancelarDialogoCargando();
-            presentador.eliminarVehiculo(vehiculo);
-        }, 500);
+        cancelarDialogoCargando();
+        presentador.eliminarVehiculo(vehiculo);
 
         new Handler().postDelayed(() -> {
             obtenerVehiculos();
             obtenerCantidadMotos();
             obtenerCantidadCarros();
             cancelarDialogoCargando();
-        }, 1000);
+        }, 500);
     }
 }

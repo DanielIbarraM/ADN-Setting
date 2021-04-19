@@ -3,10 +3,9 @@ package com.example.adn_danielibarra.mvp.presentador;
 import android.content.Context;
 
 import com.example.adn_danielibarra.R;
-import com.example.adn_danielibarra.mvp.modelo.RepositorioPrincipalParqueadero;
-import com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioPrincipal;
-import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorPrincipal;
-import com.example.adn_danielibarra.mvp.vista.contratos.VistaPrincipal;
+import com.example.adn_danielibarra.mvp.modelo.RepositorioParqueadero;
+import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorParqueadero;
+import com.example.adn_danielibarra.mvp.vista.contratos.VistaParqueadero;
 import com.example.dominio.excepcionnegocio.PlacaNoPermitidaExcepcion;
 import com.example.dominio.excepcionnegocio.PlacaNoValidaExcepcion;
 import com.example.dominio.excepcionnegocio.SinCupoExcepcion;
@@ -14,14 +13,14 @@ import com.example.dominio.modelo.Vehiculo;
 
 import java.util.List;
 
-public class PresentadorPrincipalParqueadero implements PresentadorPrincipal {
+public class PresentadorParqueaderoImpl implements PresentadorParqueadero {
 
-    VistaPrincipal vista;
-    RepositorioPrincipal repositorio;
+    VistaParqueadero vista;
+    com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioParqueadero repositorio;
 
-    public PresentadorPrincipalParqueadero(VistaPrincipal vistaPrincipal, Context context) {
-        this.vista = vistaPrincipal;
-        this.repositorio = new RepositorioPrincipalParqueadero(this, context);
+    public PresentadorParqueaderoImpl(VistaParqueadero vistaParqueadero, Context context) {
+        this.vista = vistaParqueadero;
+        this.repositorio = new RepositorioParqueadero(this, context);
     }
 
     @Override

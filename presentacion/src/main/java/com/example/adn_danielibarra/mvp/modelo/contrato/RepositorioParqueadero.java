@@ -2,7 +2,7 @@ package com.example.adn_danielibarra.mvp.modelo.contrato;
 
 import com.example.dominio.modelo.Vehiculo;
 
-public interface RepositorioPrincipal {
+public interface RepositorioParqueadero {
 
     void obtenerVehiculos ();
 

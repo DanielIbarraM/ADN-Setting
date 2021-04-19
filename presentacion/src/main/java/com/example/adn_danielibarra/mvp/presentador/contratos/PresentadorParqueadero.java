@@ -4,7 +4,7 @@ import com.example.dominio.modelo.Vehiculo;
 
 import java.util.List;
 
-public interface PresentadorPrincipal {
+public interface PresentadorParqueadero {
 
     void obtenerVehiculos ();
 
