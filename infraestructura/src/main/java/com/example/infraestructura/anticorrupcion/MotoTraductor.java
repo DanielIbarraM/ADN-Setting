@@ -11,8 +11,8 @@ public class MotoTraductor {
     public static Moto mapearMotoBdAMotoDominio (MotoBd motoBd) throws Exception{
         if (motoBd == null) throw new NullPointerException();
         Moto moto = new Moto(motoBd.obtenerPlaca(), motoBd.obtenerCilindraje());
-        moto.modificarFechaIngreso(TraductorComun.mapearDeLongACalendar(motoBd.obtenerFechaIngreso()));
-        moto.modificarFechaSalida(TraductorComun.mapearDeLongACalendar(motoBd.obtenerFechaSalida()));
+        moto.modificarFechaIngreso(FechaTraductor.mapearDeLongACalendar(motoBd.obtenerFechaIngreso()));
+        moto.modificarFechaSalida(FechaTraductor.mapearDeLongACalendar(motoBd.obtenerFechaSalida()));
         return moto;
     }
 
@@ -21,8 +21,8 @@ public class MotoTraductor {
         MotoBd motoBd = new MotoBd();
         motoBd.modificarPlaca(moto.obtenerPlaca());
         motoBd.modificarCilindraje(moto.obtenerCilindraje());
-        motoBd.modificarFechaIngreso(TraductorComun.mapeaDeCalendarALong(moto.obtenerFechaIngreso()));
-        motoBd.modificarFechaSalida(TraductorComun.mapeaDeCalendarALong(moto.obtenerFechaSalida()));
+        motoBd.modificarFechaIngreso(FechaTraductor.mapeaDeCalendarALong(moto.obtenerFechaIngreso()));
+        motoBd.modificarFechaSalida(FechaTraductor.mapeaDeCalendarALong(moto.obtenerFechaSalida()));
         return motoBd;
     }
 

@@ -14,37 +14,46 @@ import static org.junit.Assert.fail;
 public class CarroTraductorTest {
 
     @Test
-    public void mapearCarroDB_A_CarroDominioConObjetoNulo () {
+    public void mapearCarroBdACarroDominio_convertirUnaListadeConUnValorNulo_exitosoDebePasarPorFail () {
+        //Arrange
         CarroBd carroBd = null;
         try {
+            //Act
             CarroTraductor.mapearCarroBdACarroDominio(carroBd);
+            //Assert
             fail();
         } catch (Exception e) {
         }
     }
 
     @Test
-    public void mapearCarroDB_A_CarroDominioConFechasNulas () {
+    public void mapearCarroBdACarroDominio_mapearCarroDBACarroDominioConFechasNulas_exitosoNoDebeEntrarAlCatch () {
+        //Arrange
         CarroBd carroBd = new CarroBd();
         try {
+            //Act
             CarroTraductor.mapearCarroBdACarroDominio(carroBd);
         } catch (Exception e) {
             fail();
         }
+        //Assert
     }
 
     @Test
-    public void mapearCarroDominio_A_CarroDBConObjetoNulo () {
+    public void mapearCarroDominioACarroDb_mapearCarroDominioACarroDBConObjetoNulo_debeEntrarAlCatch () {
+        //Arrange
         Carro carro = null;
         try {
+            //Act
             CarroTraductor.mapearCarroDominioACarroDb(carro);
+            //Assert
             fail();
         } catch (Exception e) {
         }
     }
 
     @Test
-    public void mapearCarroDominio_A_CarroDbConFechasNulas () {
+    public void mapearCarroDominioACarroDb_mapearCarroDominioACarroDbConFechasNulas_exitosoNoDebeEntrarAlCatch () {
         Carro carro = new Carro("qwerty");
         try {
             CarroTraductor.mapearCarroDominioACarroDb(carro);
@@ -54,7 +63,7 @@ public class CarroTraductorTest {
     }
 
     @Test
-    public void mapearListaDeCarroDbACarroDominioconListaNula () {
+    public void mapearListaDeCarroDominioACarroDb_mapearListaDeCarroDbACarroDominioconListaNula_exitosoDebeEntrarAlCatch () {
         List<Carro> carroLista = null;
 
         try {
@@ -65,7 +74,7 @@ public class CarroTraductorTest {
     }
 
     @Test
-    public void mapearListaDeCarroDbACarroDominioconListaConUnObjetoNulo () {
+    public void mapearListaDeCarroDominioACarroDb_mapearListaDeCarroDbACarroDominioconListaConUnObjetoNulo_exitosoNoDebeEntrarAlCatch () {
         List<Carro> carroLista = carrosDefecto();
         carroLista.add(null);
 
@@ -77,7 +86,7 @@ public class CarroTraductorTest {
     }
 
     @Test
-    public void mapearListaDeCarroDbACarroDominioconListaConUnObjetoNuloVerificarSIOmiteEseObjeto () {
+    public void mapearListaDeCarroDominioACarroDb_mapearListaDeCarroDbACarroDominioconListaConUnObjetoNuloVerificarSIOmiteEseObjeto_TamañodeListaIgualAlEsperado () {
         List<Carro> carroLista = carrosDefecto();
         List<CarroBd> carroBdLista = new ArrayList<>();
         carroLista.add(null);
@@ -93,7 +102,7 @@ public class CarroTraductorTest {
     }
 
     @Test
-    public void mapearListaDeCarroDominioACarroDBconListaNula () {
+    public void mapearListaDeCarroDbACarroDominio_mapearListaDeCarroDominioACarroDBconListaNulaExitosoDebeEntrarAlCatch () {
         List<CarroBd> carroDbLista = null;
 
         try {
@@ -104,7 +113,7 @@ public class CarroTraductorTest {
     }
 
     @Test
-    public void mapearListaDeCarroDominioACarroDbconListaConUnObjetoNulo () {
+    public void mapearListaDeCarroDominioACarroDb_mapearListaDeCarroDominioACarroDbconListaConUnObjetoNulo_exitosoNoDebeEntrarAlCatch () {
         List<Carro> carroLista = carrosDefecto();
         List<CarroBd> carroBdLista = new ArrayList<>();
         carroLista.add(null);
@@ -117,7 +126,7 @@ public class CarroTraductorTest {
     }
 
     @Test
-    public void mapearListaDeCarroDbACarroDominioconListaConUnObjetoNuloVerificarSIOmiteEseObjetoz () {
+    public void mapearListaDeCarroDbACarroDominiomapearListaDeCarroDbACarroDominioconListaConUnObjetoNuloVerificarSIOmiteEseObjetos_tamañoListaIgualAlEsperado () {
         List<Carro> carroLista = new ArrayList<>();
         List<CarroBd> carroBdLista = carroBdDefecto();
         carroBdLista.add(null);
@@ -131,23 +140,6 @@ public class CarroTraductorTest {
 
         assertEquals(carroBdLista.size()-3, carroLista.size());
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     private List<Carro> carrosDefecto () {
         List<Carro> carroLista = new ArrayList<>();
