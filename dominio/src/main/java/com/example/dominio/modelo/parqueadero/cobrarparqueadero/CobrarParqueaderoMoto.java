@@ -23,7 +23,7 @@ public class CobrarParqueaderoMoto extends CobrarParqueaderoBase {
         vehiculo.modificarFechaSalida(fechaSalida);
         this.modificarVehiculo(vehiculo);
         int subTotal = cobrarParqueaderoPorVehiculo(obtenerValorHoraMoto(), obtenerValorDiaMoto());
-        if (((Moto)vehiculo).obtenerCilindraje() > CILINDRAJE_MINIMO_PAGO_EXTRA) {
+        if (((Moto) vehiculo).obtenerCilindraje() > CILINDRAJE_MINIMO_PAGO_EXTRA) {
             subTotal += VALOR_EXTRA_POR_CILINDRAJE;
         }
         return subTotal;

@@ -21,7 +21,7 @@ public class ServicioParqueaderoBase implements ContratoParqueadero {
         servicioSalidaParqueadero = new ServicioSalidaParqueadero(carroRepositorio, motoRepositorio, parqueadero);
     }
 
-    public void eliminarCarro (Vehiculo vehiculo) {
+    public void eliminarCarro(Vehiculo vehiculo) {
         servicioSalidaParqueadero.eliminarCarro(vehiculo);
     }
 
@@ -30,11 +30,11 @@ public class ServicioParqueaderoBase implements ContratoParqueadero {
     }
 
     @Override
-    public int calcularValorTotal (Vehiculo vehiculo) throws FechaSalidaErroneaExcepcion {
+    public int calcularValorTotal(Vehiculo vehiculo) throws FechaSalidaErroneaExcepcion {
         return parqueadero.calcularTotalVehiculo(vehiculo, Calendar.getInstance());
     }
 
-    public List<Vehiculo> obtenerCarros () {
+    public List<Vehiculo> obtenerCarros() {
         return servicioEntradaParqueadero.obtenerCarros();
     }
 
@@ -48,19 +48,19 @@ public class ServicioParqueaderoBase implements ContratoParqueadero {
 
     }
 
-    public void eliminarMoto (Vehiculo vehiculo) {
+    public void eliminarMoto(Vehiculo vehiculo) {
         servicioSalidaParqueadero.eliminarMoto(vehiculo);
     }
 
-    public void guardarMoto(Vehiculo vehiculo){
+    public void guardarMoto(Vehiculo vehiculo) {
         servicioEntradaParqueadero.guardarMoto(vehiculo);
     }
 
-    public List<Vehiculo> obtenerMotos () {
+    public List<Vehiculo> obtenerMotos() {
         return servicioEntradaParqueadero.obtenerMotos();
     }
 
-    public int obtenerCantidadMotos () {
+    public int obtenerCantidadMotos() {
         return servicioEntradaParqueadero.obtenerCantidadMotos();
     }
 

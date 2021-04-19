@@ -19,20 +19,20 @@ public class IngresoServicioParqueaderoBaseTest {
     IngresoParqueadero ingresoParqueadero;
 
     @Before
-    public void inicializar () {
+    public void inicializar() {
         parqueadero = new Parqueadero();
         ingresoParqueadero = new IngresoParqueadero(parqueadero);
     }
 
     @Test
-    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaSinInicialADiaMiercoles_exitosoNoDebeEntrarAlCatch () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaSinInicialADiaMiercoles_exitosoNoDebeEntrarAlCatch() {
         //Arrange
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2021,03,14);
+        calendar.set(2021, 03, 14);
         //Act
         try {
             ingresoParqueadero.validarIngreso(new Carro("QWERTY"), calendar);
-        }catch (Exception e){
+        } catch (Exception e) {
             fail();
         }
         //Assert
@@ -40,29 +40,29 @@ public class IngresoServicioParqueaderoBaseTest {
     }
 
     @Test
-    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaSinInicialADiaDomingo_exitosoNoDebeEntrarAlCatch () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaSinInicialADiaDomingo_exitosoNoDebeEntrarAlCatch() {
         //Arrange
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2021,03,11);
+        calendar.set(2021, 03, 11);
         //Act
         try {
             ingresoParqueadero.validarIngreso(new Carro("QWERTY"), calendar);
-        }catch (Exception e){
+        } catch (Exception e) {
             fail();
         }
         //Assert
     }
 
     @Test
-    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaDomingo_exitosoDebeDevolverPlacanoPermitidaExcepcion () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaDomingo_exitosoDebeDevolverPlacanoPermitidaExcepcion() {
         //Arrange
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2021,03,11);
+        calendar.set(2021, 03, 11);
         //Act
         try {
             ingresoParqueadero.validarIngreso(new Carro("AWERTY"), calendar);
             fail();
-        }catch (PlacaNoPermitidaExcepcion e){
+        } catch (PlacaNoPermitidaExcepcion e) {
             //Assert
             assertEquals(new PlacaNoPermitidaExcepcion().getMessage(), e.getMessage());
         }
@@ -70,87 +70,87 @@ public class IngresoServicioParqueaderoBaseTest {
     }
 
     @Test
-    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaLunes_exitosoDebeDevolverPlacanoPermitidaExcepcion () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaLunes_exitosoDebeDevolverPlacanoPermitidaExcepcion() {
         //Arrange
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2021,03,12);
+        calendar.set(2021, 03, 12);
         //Act
         try {
             ingresoParqueadero.validarIngreso(new Carro("AWERTY"), calendar);
             fail();
-        }catch (PlacaNoPermitidaExcepcion e){
+        } catch (PlacaNoPermitidaExcepcion e) {
             //Assert
             assertEquals(new PlacaNoPermitidaExcepcion().getMessage(), e.getMessage());
         }
     }
 
     @Test
-    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaMartes_exitosoNoDebeEntrarAlCatch () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaMartes_exitosoNoDebeEntrarAlCatch() {
         //Arrange
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2021,03,13);
+        calendar.set(2021, 03, 13);
         //Act
         try {
             ingresoParqueadero.validarIngreso(new Carro("AWERTY"), calendar);
-        }catch (Exception e){
+        } catch (Exception e) {
             fail();
         }
         //Assert
     }
 
     @Test
-    public void validarIngreso_validarIngresoVehiculoPlacaMinusculaConInicialADiaDomingo_exitosoDebeDevolverPlacanoPermitidaExcepcion () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMinusculaConInicialADiaDomingo_exitosoDebeDevolverPlacanoPermitidaExcepcion() {
         //Arrange
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2021,03,11);
+        calendar.set(2021, 03, 11);
         //Act
         try {
             ingresoParqueadero.validarIngreso(new Carro("awerty"), calendar);
             fail();
-        }catch (PlacaNoPermitidaExcepcion e){
+        } catch (PlacaNoPermitidaExcepcion e) {
             //Assert
             assertEquals(new PlacaNoPermitidaExcepcion().getMessage(), e.getMessage());
         }
     }
 
     @Test
-    public void validarIngreso_validarIngresoVehiculoPlacaMinusculaConInicialADiaLunes_exitosoDebeDevolverPlacanoPermitidaExcepcion () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMinusculaConInicialADiaLunes_exitosoDebeDevolverPlacanoPermitidaExcepcion() {
         //Arrange
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2021,03,12);
+        calendar.set(2021, 03, 12);
         //Act
         try {
             ingresoParqueadero.validarIngreso(new Carro("awertyy"), calendar);
             fail();
-        }catch (PlacaNoPermitidaExcepcion e){
+        } catch (PlacaNoPermitidaExcepcion e) {
             //Assert
             assertEquals(new PlacaNoPermitidaExcepcion().getMessage(), e.getMessage());
         }
     }
 
     @Test
-    public void validarIngreso_validarIngresoVehiculoPlacaMinusculaConInicialADiaMartes_exitosoNoDebeEntrarAlCatch () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMinusculaConInicialADiaMartes_exitosoNoDebeEntrarAlCatch() {
         //Arrange
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2021,03,13);
+        calendar.set(2021, 03, 13);
         //Act
         try {
             ingresoParqueadero.validarIngreso(new Carro("awerty"), calendar);
-        }catch (Exception e){
+        } catch (Exception e) {
             fail();
         }
         //Assert
     }
 
     @Test
-    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaViernes_exitosoNoDebeEntrarAlCatch () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaViernes_exitosoNoDebeEntrarAlCatch() {
         //Arrange
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2021,03,16);
+        calendar.set(2021, 03, 16);
         //Act
         try {
             ingresoParqueadero.validarIngreso(new Carro("AWERTY"), calendar);
-        }catch (Exception e){
+        } catch (Exception e) {
             fail();
         }
         //Assert

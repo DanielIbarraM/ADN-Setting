@@ -8,9 +8,9 @@ public interface VehiculoRepositorio {
 
     List<Vehiculo> obtenerVehiculos();
 
-    void guardarVehiculo (Vehiculo vehiculo);
+    void guardarVehiculo(Vehiculo vehiculo);
 
-    void eliminarVehiculo (Vehiculo vehiculo);
+    void eliminarVehiculo(Vehiculo vehiculo);
 
-    int obtenerCantidadVehiculos ();
+    int obtenerCantidadVehiculos();
 }

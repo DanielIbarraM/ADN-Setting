@@ -14,11 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class CarroRepositorioRoom  implements VehiculoRepositorio {
+public class CarroRepositorioRoom implements VehiculoRepositorio {
 
     private CarroDao carroDao;
 
-    public CarroRepositorioRoom (Context contexto) {
+    public CarroRepositorioRoom(Context contexto) {
         carroDao = AdministradorBaseDeDatos.obtenerInstancia(contexto).carroDao();
     }
 

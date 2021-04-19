@@ -8,12 +8,12 @@ public interface ContratoCarro {
 
     List<Vehiculo> obtenerCarros();
 
-    void guardarCarro (Vehiculo vehiculo);
+    void guardarCarro(Vehiculo vehiculo);
 
-    void eliminarCarro (Vehiculo vehiculo);
+    void eliminarCarro(Vehiculo vehiculo);
 
     int obtenerCantidadCarros();
 
-    void validarIngresoCarro (Vehiculo vehiculo);
+    void validarIngresoCarro(Vehiculo vehiculo);
 
 }

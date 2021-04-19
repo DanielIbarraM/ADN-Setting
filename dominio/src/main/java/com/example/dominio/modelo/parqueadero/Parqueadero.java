@@ -35,11 +35,11 @@ public class Parqueadero {
         cobrarParqueaderoBaseMoto = new CobrarParqueaderoMoto(this);
     }
 
-    public void validarIngresoVehiculo (Vehiculo vehiculo, Calendar calendar) throws PlacaNoValidaExcepcion, PlacaNoPermitidaExcepcion {
+    public void validarIngresoVehiculo(Vehiculo vehiculo, Calendar calendar) throws PlacaNoValidaExcepcion, PlacaNoPermitidaExcepcion {
         ingresoParqueadero.validarIngreso(vehiculo, calendar);
     }
 
-    public int calcularTotalVehiculo (Vehiculo vehiculo, Calendar calendar) throws FechaSalidaErroneaExcepcion {
+    public int calcularTotalVehiculo(Vehiculo vehiculo, Calendar calendar) throws FechaSalidaErroneaExcepcion {
         int total = 0;
         if (vehiculo instanceof Carro) {
             total = cobrarParqueaderoBaseCarro.calcularTotal(vehiculo, calendar);
@@ -54,7 +54,7 @@ public class Parqueadero {
         return horaInicialDeCobroPorDia;
     }
 
-    public int obtenerhorasDelDia () {
+    public int obtenerhorasDelDia() {
         return horasDelDia;
     }
 

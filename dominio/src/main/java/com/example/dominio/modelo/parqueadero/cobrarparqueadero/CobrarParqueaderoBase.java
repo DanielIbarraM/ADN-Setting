@@ -12,14 +12,14 @@ public abstract class CobrarParqueaderoBase {
     private Vehiculo vehiculo;
     private Parqueadero parqueadero;
 
-    private int calcularTotalHorasPorVehiculo(){
+    private int calcularTotalHorasPorVehiculo() {
         long diferenciaHoras = obtenerVehiculo().obtenerFechaSalida().getTimeInMillis() - vehiculo.obtenerFechaIngreso().getTimeInMillis();
-        float resultado = (float) diferenciaHoras/parqueadero.obtenerHoraEnMilisegundos();
+        float resultado = (float) diferenciaHoras / parqueadero.obtenerHoraEnMilisegundos();
         return (int) Math.ceil(resultado);
     }
 
-    private void verificarFechaSalidaPosteriorFechaEntrada () throws FechaSalidaErroneaExcepcion {
-        if (obtenerVehiculo().obtenerFechaSalida().compareTo(obtenerVehiculo().obtenerFechaIngreso()) <= 0){
+    private void verificarFechaSalidaPosteriorFechaEntrada() throws FechaSalidaErroneaExcepcion {
+        if (obtenerVehiculo().obtenerFechaSalida().compareTo(obtenerVehiculo().obtenerFechaIngreso()) <= 0) {
             throw new FechaSalidaErroneaExcepcion();
         }
     }
@@ -42,7 +42,7 @@ public abstract class CobrarParqueaderoBase {
         if (horasParqueadas > parqueadero.obtenerhorasDelDia()) {
             int dias = horasParqueadas / parqueadero.obtenerhorasDelDia();
             int horas = horasParqueadas % parqueadero.obtenerhorasDelDia();
-            if (horas>=parqueadero.obtenerhoraInicialDeCobroPorDia())
+            if (horas >= parqueadero.obtenerhoraInicialDeCobroPorDia())
                 valorPagar = (dias + 1) * valorPorDia;
             else
                 valorPagar = (dias * valorPorDia) + (horas * valorPorHora);
@@ -51,7 +51,7 @@ public abstract class CobrarParqueaderoBase {
         return valorPagar;
     }
 
-    public abstract int calcularTotal (Vehiculo vehiculo, Calendar fechaSalida);
+    public abstract int calcularTotal(Vehiculo vehiculo, Calendar fechaSalida);
 
     protected Vehiculo obtenerVehiculo() {
         return vehiculo;

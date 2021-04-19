@@ -16,11 +16,11 @@ public class ServicioSalidaParqueadero {
         this.parqueadero = parqueadero;
     }
 
-    public void eliminarMoto (Vehiculo vehiculo) {
-        carroRepositorio.eliminarVehiculo(vehiculo);
+    public void eliminarMoto(Vehiculo vehiculo) {
+        motoRepositorio.eliminarVehiculo(vehiculo);
     }
 
-    public void eliminarCarro (Vehiculo vehiculo){
-        motoRepositorio.eliminarVehiculo(vehiculo);
+    public void eliminarCarro(Vehiculo vehiculo) {
+        carroRepositorio.eliminarVehiculo(vehiculo);
     }
 }

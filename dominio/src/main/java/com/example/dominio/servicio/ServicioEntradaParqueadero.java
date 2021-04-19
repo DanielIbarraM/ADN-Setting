@@ -20,13 +20,13 @@ public class ServicioEntradaParqueadero {
         this.parqueadero = parqueadero;
     }
 
-    public void guardarMoto (Vehiculo vehiculo){
+    public void guardarMoto(Vehiculo vehiculo) {
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
         validarIngresoMoto(vehiculo);
         motoRepositorio.guardarVehiculo(vehiculo);
     }
 
-    public int obtenerCantidadMotos (){
+    public int obtenerCantidadMotos() {
         return motoRepositorio.obtenerCantidadVehiculos();
     }
 
@@ -34,21 +34,21 @@ public class ServicioEntradaParqueadero {
         return motoRepositorio.obtenerVehiculos();
     }
 
-    public void validarIngresoMoto (Vehiculo vehiculo) {
-        if ((obtenerCantidadMotos()>=parqueadero.obtenerCantidadMaximaMotos())){
+    public void validarIngresoMoto(Vehiculo vehiculo) {
+        if ((obtenerCantidadMotos() >= parqueadero.obtenerCantidadMaximaMotos())) {
             throw new SinCupoExcepcion();
         }
 
         parqueadero.validarIngresoVehiculo(vehiculo, Calendar.getInstance());
     }
 
-    public void guardarCarro (Vehiculo vehiculo){
+    public void guardarCarro(Vehiculo vehiculo) {
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
         validarIngresoCarro(vehiculo);
         carroRepositorio.guardarVehiculo(vehiculo);
     }
 
-    public int obtenerCantidadCarros (){
+    public int obtenerCantidadCarros() {
         return carroRepositorio.obtenerCantidadVehiculos();
     }
 
@@ -56,8 +56,8 @@ public class ServicioEntradaParqueadero {
         return carroRepositorio.obtenerVehiculos();
     }
 
-    public void validarIngresoCarro (Vehiculo vehiculo) {
-        if ((obtenerCantidadCarros()>=parqueadero.obtenerCantidadMaximaCarros())){
+    public void validarIngresoCarro(Vehiculo vehiculo) {
+        if ((obtenerCantidadCarros() >= parqueadero.obtenerCantidadMaximaCarros())) {
             throw new SinCupoExcepcion();
         }
 

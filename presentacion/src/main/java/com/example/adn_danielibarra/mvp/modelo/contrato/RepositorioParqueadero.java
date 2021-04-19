@@ -4,7 +4,7 @@ import com.example.dominio.modelo.Vehiculo;
 
 public interface RepositorioParqueadero {
 
-    void obtenerVehiculos ();
+    void obtenerVehiculos();
 
     void eliminarVehiculo(Vehiculo vehiculo);
 
@@ -12,7 +12,7 @@ public interface RepositorioParqueadero {
 
     int obtenerCantidadMotos();
 
-    void ingresarVehiculo (Vehiculo vehiculo);
+    void ingresarVehiculo(Vehiculo vehiculo);
 
-    int calcularTotalVehiculo (Vehiculo vehiculo);
+    int calcularTotalVehiculo(Vehiculo vehiculo);
 }

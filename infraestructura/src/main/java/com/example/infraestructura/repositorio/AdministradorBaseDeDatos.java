@@ -18,6 +18,7 @@ import java.util.concurrent.Executors;
 public abstract class AdministradorBaseDeDatos extends RoomDatabase {
 
     public abstract CarroDao carroDao();
+
     public abstract MotoDao motoDao();
 
     private static AdministradorBaseDeDatos administradorBaseDeDatos = null;
@@ -25,7 +26,7 @@ public abstract class AdministradorBaseDeDatos extends RoomDatabase {
     private static final int NUMEROS_HILOS = 10;
     public static final ExecutorService EJECUTOR_SEGUNDO_PLANO = Executors.newFixedThreadPool(NUMEROS_HILOS);
 
-    public static AdministradorBaseDeDatos obtenerInstancia (Context contexto) {
+    public static AdministradorBaseDeDatos obtenerInstancia(Context contexto) {
         if (contexto == null) {
             throw new NullPointerException();
         }

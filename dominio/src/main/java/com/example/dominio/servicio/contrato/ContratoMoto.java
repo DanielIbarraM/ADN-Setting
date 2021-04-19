@@ -8,11 +8,11 @@ public interface ContratoMoto {
 
     List<Vehiculo> obtenerMotos();
 
-    void guardarMoto (Vehiculo vehiculo);
+    void guardarMoto(Vehiculo vehiculo);
 
-    void eliminarMoto (Vehiculo vehiculo);
+    void eliminarMoto(Vehiculo vehiculo);
 
-    int obtenerCantidadMotos ();
+    int obtenerCantidadMotos();
 
-    void validarIngresoMoto (Vehiculo vehiculo);
+    void validarIngresoMoto(Vehiculo vehiculo);
 }

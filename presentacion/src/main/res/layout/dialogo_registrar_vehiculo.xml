@@ -34,7 +34,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:text="@string/carro"
-                    android:checked="true"/>
+                    android:checked="true" />
 
                 <RadioButton
                     android:id="@+id/tipoMoto"
@@ -96,8 +96,7 @@
             android:layout_height="wrap_content"
             android:hint="ej: 500"
             android:inputType="number"
-            android:maxLength="4"
-             />
+            android:maxLength="4" />
     </LinearLayout>
 
     <LinearLayout
@@ -106,27 +105,25 @@
         android:layout_below="@id/contenedorCilindraje"
         android:orientation="horizontal"
         android:paddingTop="20dp"
-        android:gravity="center"
-        >
+        android:gravity="center">
 
-            <Button
-                android:id="@+id/btnCancelar"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:text="@string/cancelar"
-                />
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:text="@string/cancelar" />
+
         <View
             android:layout_width="20dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
 
-            <Button
-                android:id="@+id/btnRegistrar"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:text="@string/registrar"
-                />
+        <Button
+            android:id="@+id/btnRegistrar"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:text="@string/registrar" />
 
     </LinearLayout>
 

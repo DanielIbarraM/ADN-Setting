@@ -20,7 +20,7 @@ public abstract class VehiculoBd {
     public int getId() {
         return id;
     }
-    
+
     public String obtenerPlaca() {
         return this.placa;
     }

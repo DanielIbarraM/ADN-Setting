@@ -14,7 +14,7 @@ import static org.junit.Assert.fail;
 public class MotoTraductorTest {
 
     @Test
-    public void mapearMotoBdAMotoDominio_mapearMotoDBAMotoDominioConObjetoNulo_debeEntrarALCatch () {
+    public void mapearMotoBdAMotoDominio_mapearMotoDBAMotoDominioConObjetoNulo_debeEntrarALCatch() {
         MotoBd motoBd = null;
         try {
             MotoTraductor.mapearMotoBdAMotoDominio(motoBd);
@@ -24,7 +24,7 @@ public class MotoTraductorTest {
     }
 
     @Test
-    public void mapearMotoBdAMotoDominio_mapearMotoDBAMotoDominioConFechasNulas_NoDebeEntrarAlCatch () {
+    public void mapearMotoBdAMotoDominio_mapearMotoDBAMotoDominioConFechasNulas_NoDebeEntrarAlCatch() {
         MotoBd motoBd = new MotoBd();
         try {
             MotoTraductor.mapearMotoBdAMotoDominio(motoBd);
@@ -34,7 +34,7 @@ public class MotoTraductorTest {
     }
 
     @Test
-    public void mapearDeMotoDominioAMotoDb_mapearMotoDominioAMotoDBConObjetoNulo_NoDebeEntrarAlCatch () {
+    public void mapearDeMotoDominioAMotoDb_mapearMotoDominioAMotoDBConObjetoNulo_NoDebeEntrarAlCatch() {
         Moto moto = null;
         try {
             MotoTraductor.mapearDeMotoDominioAMotoDb(moto);
@@ -44,8 +44,8 @@ public class MotoTraductorTest {
     }
 
     @Test
-    public void mapearDeMotoDominioAMotoDb_mapearMotoDominioAMotoDbConFechasNulasNoDebeEntrarAlCatch () {
-        Moto moto = new Moto("qwerty",450);
+    public void mapearDeMotoDominioAMotoDb_mapearMotoDominioAMotoDbConFechasNulasNoDebeEntrarAlCatch() {
+        Moto moto = new Moto("qwerty", 450);
         try {
             MotoTraductor.mapearDeMotoDominioAMotoDb(moto);
         } catch (Exception e) {
@@ -54,7 +54,7 @@ public class MotoTraductorTest {
     }
 
     @Test
-    public void mapearListaDeMotoDominioAMotoDb_mapearListaDeMotoDbAMotoDominioconListaNula_DebeEntrarAlCatch () {
+    public void mapearListaDeMotoDominioAMotoDb_mapearListaDeMotoDbAMotoDominioconListaNula_DebeEntrarAlCatch() {
         List<Moto> motoLista = null;
 
         try {
@@ -65,7 +65,7 @@ public class MotoTraductorTest {
     }
 
     @Test
-    public void mapearListaDeMotoDbAMotoDominioconListaConUnObjetoNulo_noDebeEntrarAlCatch () {
+    public void mapearListaDeMotoDbAMotoDominioconListaConUnObjetoNulo_noDebeEntrarAlCatch() {
         List<Moto> motoLista = motosDefecto();
         motoLista.add(null);
 
@@ -77,7 +77,7 @@ public class MotoTraductorTest {
     }
 
     @Test
-    public void mapearListaDeMotoDominioAMotoDb_mapearListaDeMotoDbAMotoDominioconListaConUnObjetoNuloVerificarSIOmiteEseObjeto_tamañoListaIgualAEsperado () {
+    public void mapearListaDeMotoDominioAMotoDb_mapearListaDeMotoDbAMotoDominioconListaConUnObjetoNuloVerificarSIOmiteEseObjeto_tamañoListaIgualAEsperado() {
         List<Moto> motoLista = motosDefecto();
         List<MotoBd> motoBdLista = new ArrayList<>();
         motoLista.add(null);
@@ -89,11 +89,11 @@ public class MotoTraductorTest {
         } catch (Exception e) {
         }
 
-        assertEquals(motoLista.size()-3, motoBdLista.size());
+        assertEquals(motoLista.size() - 3, motoBdLista.size());
     }
 
     @Test
-    public void mapearListaDeMotosDbAMotoDominio_mapearListaDeMotoDominioAMotoDBconListaNula_DebeEntrarAlCatch () {
+    public void mapearListaDeMotosDbAMotoDominio_mapearListaDeMotoDominioAMotoDBconListaNula_DebeEntrarAlCatch() {
         List<MotoBd> motoDbLista = null;
 
         try {
@@ -104,7 +104,7 @@ public class MotoTraductorTest {
     }
 
     @Test
-    public void mapearListaDeMotoDominioAMotoDb_mapearListaDeMotoDominioAMotoDbconListaConUnObjetoNulo_noDebeEntrarAlCatch () {
+    public void mapearListaDeMotoDominioAMotoDb_mapearListaDeMotoDominioAMotoDbconListaConUnObjetoNulo_noDebeEntrarAlCatch() {
         List<Moto> motoLista = motosDefecto();
         List<MotoBd> motoBdLista = new ArrayList<>();
         motoLista.add(null);
@@ -117,7 +117,7 @@ public class MotoTraductorTest {
     }
 
     @Test
-    public void mapearListaDeMotosDbAMotoDominio_mapearListaDeMotoDbAMotoDominioconListaConUnObjetoNuloVerificarSIOmiteEseObjetoz () {
+    public void mapearListaDeMotosDbAMotoDominio_mapearListaDeMotoDbAMotoDominioconListaConUnObjetoNuloVerificarSIOmiteEseObjetoz() {
         List<Moto> motoLista = new ArrayList<>();
         List<MotoBd> motoBdLista = motoBdDefecto();
         motoBdLista.add(null);
@@ -129,16 +129,16 @@ public class MotoTraductorTest {
         } catch (Exception e) {
         }
 
-        assertEquals(motoBdLista.size()-3, motoLista.size());
+        assertEquals(motoBdLista.size() - 3, motoLista.size());
     }
 
-    private List<Moto> motosDefecto () {
+    private List<Moto> motosDefecto() {
         List<Moto> motoLista = new ArrayList<>();
 
-        Moto moto1 = new Moto("QWERTY",400);
-        Moto moto2 = new Moto("ZXCVB",650);
-        Moto moto3 = new Moto("UHJKNKL",120);
-        Moto moto4 = new Moto("SCVSVS",850);
+        Moto moto1 = new Moto("QWERTY", 400);
+        Moto moto2 = new Moto("ZXCVB", 650);
+        Moto moto3 = new Moto("UHJKNKL", 120);
+        Moto moto4 = new Moto("SCVSVS", 850);
 
         motoLista.add(moto1);
         motoLista.add(moto2);
@@ -147,7 +147,7 @@ public class MotoTraductorTest {
         return motoLista;
     }
 
-    private List<MotoBd> motoBdDefecto () {
+    private List<MotoBd> motoBdDefecto() {
         List<MotoBd> motoBdLista = new ArrayList<>();
         MotoBd motoBd1 = new MotoBd();
         MotoBd motoBd2 = new MotoBd();

@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface VistaParqueadero extends VistaComun {
 
-    void obtenerVehiculos ();
+    void obtenerVehiculos();
 
-    void mostrarVehiculos (List<Vehiculo> vehiculoLista);
+    void mostrarVehiculos(List<Vehiculo> vehiculoLista);
 
-    void mostrarSinVehiculos ();
+    void mostrarSinVehiculos();
 
     void eliminarVehiculo(Vehiculo vehiculo);
 
@@ -18,7 +18,7 @@ public interface VistaParqueadero extends VistaComun {
 
     void obtenerCantidadMotos();
 
-    void ingresarVehiculo (Vehiculo vehiculo);
+    void ingresarVehiculo(Vehiculo vehiculo);
 
 
 }

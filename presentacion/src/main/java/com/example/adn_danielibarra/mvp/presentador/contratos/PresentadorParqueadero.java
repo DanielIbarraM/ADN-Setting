@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface PresentadorParqueadero {
 
-    void obtenerVehiculos ();
+    void obtenerVehiculos();
 
-    void mostrarVehiculos (List<Vehiculo> vehiculoLista);
+    void mostrarVehiculos(List<Vehiculo> vehiculoLista);
 
     void eliminarVehiculo(Vehiculo vehiculo);
 
@@ -16,7 +16,7 @@ public interface PresentadorParqueadero {
 
     int obtenerCantidadMotos();
 
-    void ingresarVehiculo (Vehiculo vehiculo);
+    void ingresarVehiculo(Vehiculo vehiculo);
 
-    int calcularTotal (Vehiculo vehiculo);
+    int calcularTotal(Vehiculo vehiculo);
 }

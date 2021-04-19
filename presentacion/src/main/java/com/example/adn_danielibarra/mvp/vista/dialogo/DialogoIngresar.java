@@ -48,7 +48,7 @@ public class DialogoIngresar extends DialogFragment {
         return builder.create();
     }
 
-    private void inicializar (View vista) {
+    private void inicializar(View vista) {
         radioCarro = vista.findViewById(R.id.tipoCarro);
         radioMoto = vista.findViewById(R.id.tipoMoto);
         contenedorCilindraje = vista.findViewById(R.id.contenedorCilindraje);
@@ -75,18 +75,18 @@ public class DialogoIngresar extends DialogFragment {
         });
     }
 
-    private void validarDatos () {
-        if (etPlaca.getText().toString().isEmpty()){
+    private void validarDatos() {
+        if (etPlaca.getText().toString().isEmpty()) {
             mainActivity.mostrarDialogoAlerta(R.string.informacion, "Ingrese placa del vehiculo");
             return;
         }
-        if (radioMoto.isChecked() && etCilindraje.getText().toString().isEmpty()){
+        if (radioMoto.isChecked() && etCilindraje.getText().toString().isEmpty()) {
             mainActivity.mostrarDialogoAlerta(R.string.informacion, "Ingrese cilindraje de la moto");
         }
     }
 
-    private void crearVehiculo (String placa, String cilindraje) {
-        if (radioCarro.isChecked()){
+    private void crearVehiculo(String placa, String cilindraje) {
+        if (radioCarro.isChecked()) {
             vehiculo = new Carro(placa);
         } else {
             vehiculo = new Moto(placa, Integer.parseInt(cilindraje));

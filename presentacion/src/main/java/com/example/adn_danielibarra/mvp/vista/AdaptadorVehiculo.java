@@ -27,7 +27,7 @@ public class AdaptadorVehiculo extends RecyclerView.Adapter<AdaptadorVehiculo.Vi
     public AdaptadorVehiculo(List<Vehiculo> vehiculoLista, ObtenerVehiculoIngresado vehiculoIngresado) {
         this.vehiculoLista = vehiculoLista;
         this.vehiculoIngresado = vehiculoIngresado;
-        dias=new ArrayList<>();
+        dias = new ArrayList<>();
 
     }
 
@@ -77,14 +77,14 @@ public class AdaptadorVehiculo extends RecyclerView.Adapter<AdaptadorVehiculo.Vi
             });
         }
 
-        public void llenarDatos (int posicion) {
+        public void llenarDatos(int posicion) {
             this.vehiculo = vehiculoLista.get(posicion);
             placa.setText(vehiculo.obtenerPlaca());
             fechaIngreso.setText(vehiculo.obtenerFechaIngreso().getTime().toString());
             if (vehiculo instanceof Moto) {
                 tipoVehiculo.setText(R.string.moto);
                 linCilindraje.setVisibility(View.VISIBLE);
-                cilindraje.setText(String.valueOf(((Moto)vehiculo).obtenerCilindraje()));
+                cilindraje.setText(String.valueOf(((Moto) vehiculo).obtenerCilindraje()));
 
             } else {
                 tipoVehiculo.setText(R.string.carro);

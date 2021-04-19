@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements VistaParqueadero 
         super.onRestoreInstanceState(savedInstanceState);
     }
 
-    private void inicializar () {
+    private void inicializar() {
         btnIngresar = findViewById(R.id.btn_ingresar);
         vistaReciclada = findViewById(R.id.recyclerView);
         imagenListaVacia = findViewById(R.id.img_lista_vacia);
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements VistaParqueadero 
         dialogoIngresar = new DialogoIngresar(obtenerVehiculoIngresado);
         presentador = new PresentadorParqueaderoImpl(this, getApplicationContext());
         btnIngresar.setOnClickListener(v -> {
-            dialogoIngresar.show(getSupportFragmentManager(),"");
+            dialogoIngresar.show(getSupportFragmentManager(), "");
         });
     }
 
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements VistaParqueadero 
 
     @Override
     public void mostrarVehiculos(List<Vehiculo> vehiculoLista) {
-        System.out.println("tamaño de vehiculo ---"+vehiculoLista.size());
+        System.out.println("tamaño de vehiculo ---" + vehiculoLista.size());
         cancelarDialogoCargando();
         vistaReciclada.setVisibility(View.VISIBLE);
         imagenListaVacia.setVisibility(View.GONE);
@@ -157,9 +157,9 @@ public class MainActivity extends AppCompatActivity implements VistaParqueadero 
         }
     }
 
-    private void cobrarDialogo (Vehiculo vehiculo) {
+    private void cobrarDialogo(Vehiculo vehiculo) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("El valor a cobrar es: "+presentador.calcularTotal(vehiculo))
+        builder.setMessage("El valor a cobrar es: " + presentador.calcularTotal(vehiculo))
                 .setPositiveButton(R.string.cobrar, (dialog, which) -> {
                     finalizacionCobro(vehiculo);
                 });
@@ -167,12 +167,12 @@ public class MainActivity extends AppCompatActivity implements VistaParqueadero 
 
         });
         builder.create();
-        Dialog dialog =builder.create();
+        Dialog dialog = builder.create();
         dialog.show();
 
     }
 
-    private void finalizacionCobro (Vehiculo vehiculo) {
+    private void finalizacionCobro(Vehiculo vehiculo) {
         mostrarDialogoCargando(R.string.informacion, R.string.cobrando_vehiculo);
         cancelarDialogoCargando();
         presentador.eliminarVehiculo(vehiculo);

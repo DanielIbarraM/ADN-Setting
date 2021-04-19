@@ -15,12 +15,12 @@ public class IngresoParqueadero {
         this.parqueadero = parqueadero;
     }
 
-    public void validarIngreso (Vehiculo vehiculo, Calendar calendar) throws PlacaNoValidaExcepcion, PlacaNoPermitidaExcepcion {
-        if (vehiculo.obtenerPlaca()==null || vehiculo.obtenerPlaca().isEmpty()){
+    public void validarIngreso(Vehiculo vehiculo, Calendar calendar) throws PlacaNoValidaExcepcion, PlacaNoPermitidaExcepcion {
+        if (vehiculo.obtenerPlaca() == null || vehiculo.obtenerPlaca().isEmpty()) {
             throw new PlacaNoValidaExcepcion();
         }
         int diaActual = calendar.get(Calendar.DAY_OF_WEEK);
-        if ((vehiculo.obtenerPlaca().toLowerCase().startsWith(parqueadero.obtenerInicialPlaca().toLowerCase())) && (diaActual==parqueadero.obtenerDomingo() || diaActual==parqueadero.obtenerLunes())){
+        if ((vehiculo.obtenerPlaca().toLowerCase().startsWith(parqueadero.obtenerInicialPlaca().toLowerCase())) && (diaActual == parqueadero.obtenerDomingo() || diaActual == parqueadero.obtenerLunes())) {
             throw new PlacaNoPermitidaExcepcion();
         }
     }

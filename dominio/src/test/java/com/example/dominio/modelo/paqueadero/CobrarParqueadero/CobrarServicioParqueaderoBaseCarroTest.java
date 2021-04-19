@@ -20,18 +20,18 @@ public class CobrarServicioParqueaderoBaseCarroTest {
     Vehiculo vehiculo;
 
     @Before
-    public void inicializar () {
+    public void inicializar() {
         parqueadero = new Parqueadero();
         calendar = Calendar.getInstance();
         vehiculo = new Carro("QWE098");
     }
 
     @Test
-    public void calcularTotal_calcularTotalCarroConHoraFinalAnteriorAHoraDeSalida_devuelveFechaSalidaErroneaExcepcion (){
+    public void calcularTotal_calcularTotalCarroConHoraFinalAnteriorAHoraDeSalida_devuelveFechaSalidaErroneaExcepcion() {
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
-        long tiempo = parqueadero.obtenerHoraEnMilisegundos()*4;
-        calendar.setTimeInMillis(calendar.getTimeInMillis()-tiempo);
+        long tiempo = parqueadero.obtenerHoraEnMilisegundos() * 4;
+        calendar.setTimeInMillis(calendar.getTimeInMillis() - tiempo);
         //Act
         try {
             parqueadero.calcularTotalVehiculo(vehiculo, calendar);
@@ -43,12 +43,12 @@ public class CobrarServicioParqueaderoBaseCarroTest {
     }
 
     @Test
-    public void calcularTotal_calcularTotalCarroConHoraSalidaYLlegadaIguales_devuelveFechaSalidaErroneaExcepcion (){
+    public void calcularTotal_calcularTotalCarroConHoraSalidaYLlegadaIguales_devuelveFechaSalidaErroneaExcepcion() {
         //Arrange
         vehiculo.modificarFechaIngreso(calendar);
         //Act
         try {
-             parqueadero.calcularTotalVehiculo(vehiculo, calendar);
+            parqueadero.calcularTotalVehiculo(vehiculo, calendar);
             fail();
         } catch (FechaSalidaErroneaExcepcion e) {
             //Assert
@@ -57,11 +57,11 @@ public class CobrarServicioParqueaderoBaseCarroTest {
     }
 
     @Test
-    public void calcularTotal_calcularTotalCarroConCuatroHorasParqueado_exitosoValoresIguales (){
+    public void calcularTotal_calcularTotalCarroConCuatroHorasParqueado_exitosoValoresIguales() {
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
-        long tiempo = parqueadero.obtenerHoraEnMilisegundos()*4;
-        calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
+        long tiempo = parqueadero.obtenerHoraEnMilisegundos() * 4;
+        calendar.setTimeInMillis(calendar.getTimeInMillis() + tiempo);
         //Act
         int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
@@ -69,11 +69,11 @@ public class CobrarServicioParqueaderoBaseCarroTest {
     }
 
     @Test
-    public void calcularTotal_calcularTotalCarroConSieteHorasParqueado_exitosoValoresIguales (){
+    public void calcularTotal_calcularTotalCarroConSieteHorasParqueado_exitosoValoresIguales() {
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
-        long tiempo = parqueadero.obtenerHoraEnMilisegundos()*7;
-        calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
+        long tiempo = parqueadero.obtenerHoraEnMilisegundos() * 7;
+        calendar.setTimeInMillis(calendar.getTimeInMillis() + tiempo);
         //Act
         int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
@@ -81,11 +81,11 @@ public class CobrarServicioParqueaderoBaseCarroTest {
     }
 
     @Test
-    public void calcularTotal_calcularTotalCarroConOchoHorasParqueado_exitosoValoresIguales (){
+    public void calcularTotal_calcularTotalCarroConOchoHorasParqueado_exitosoValoresIguales() {
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
-        long tiempo = parqueadero.obtenerHoraEnMilisegundos()*8;
-        calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
+        long tiempo = parqueadero.obtenerHoraEnMilisegundos() * 8;
+        calendar.setTimeInMillis(calendar.getTimeInMillis() + tiempo);
         //Act
         int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
@@ -93,11 +93,11 @@ public class CobrarServicioParqueaderoBaseCarroTest {
     }
 
     @Test
-    public void calcularTotal_calcularTotalCarroConNueveHorasParqueadoCobroPorDia_exitosoValoresIguales (){
+    public void calcularTotal_calcularTotalCarroConNueveHorasParqueadoCobroPorDia_exitosoValoresIguales() {
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
-        long tiempo = parqueadero.obtenerHoraEnMilisegundos()*9;
-        calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
+        long tiempo = parqueadero.obtenerHoraEnMilisegundos() * 9;
+        calendar.setTimeInMillis(calendar.getTimeInMillis() + tiempo);
         //Act
         int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
@@ -105,11 +105,11 @@ public class CobrarServicioParqueaderoBaseCarroTest {
     }
 
     @Test
-    public void calcularTotal_calcularTotalCarroConVeinteHorasParqueadoCobroPorDia_exitosoValoresIguales (){
+    public void calcularTotal_calcularTotalCarroConVeinteHorasParqueadoCobroPorDia_exitosoValoresIguales() {
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
-        long tiempo = parqueadero.obtenerHoraEnMilisegundos()*20;
-        calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
+        long tiempo = parqueadero.obtenerHoraEnMilisegundos() * 20;
+        calendar.setTimeInMillis(calendar.getTimeInMillis() + tiempo);
         //Act
         int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
@@ -117,11 +117,11 @@ public class CobrarServicioParqueaderoBaseCarroTest {
     }
 
     @Test
-    public void calcularTotal_calcularTotalCarroConVeinteSeisHorasParqueadoCobroPorDia_exitosoValoresIguales (){
+    public void calcularTotal_calcularTotalCarroConVeinteSeisHorasParqueadoCobroPorDia_exitosoValoresIguales() {
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
-        long tiempo = parqueadero.obtenerHoraEnMilisegundos()*26;
-        calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
+        long tiempo = parqueadero.obtenerHoraEnMilisegundos() * 26;
+        calendar.setTimeInMillis(calendar.getTimeInMillis() + tiempo);
         //Act
         int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert
@@ -129,11 +129,11 @@ public class CobrarServicioParqueaderoBaseCarroTest {
     }
 
     @Test
-    public void calcularTotal_calcularTotalCarroConSetentaYCincoHorasParqueadoCobroPorDia_exitosoValoresIguales (){
+    public void calcularTotal_calcularTotalCarroConSetentaYCincoHorasParqueadoCobroPorDia_exitosoValoresIguales() {
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
-        long tiempo = parqueadero.obtenerHoraEnMilisegundos()*75;
-        calendar.setTimeInMillis(calendar.getTimeInMillis()+tiempo);
+        long tiempo = parqueadero.obtenerHoraEnMilisegundos() * 75;
+        calendar.setTimeInMillis(calendar.getTimeInMillis() + tiempo);
         //Act
         int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
         //Assert

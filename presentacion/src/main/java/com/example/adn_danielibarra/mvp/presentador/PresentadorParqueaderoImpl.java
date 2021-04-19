@@ -59,7 +59,7 @@ public class PresentadorParqueaderoImpl implements PresentadorParqueadero {
     public void ingresarVehiculo(Vehiculo vehiculo) {
         try {
             repositorio.ingresarVehiculo(vehiculo);
-        }catch (PlacaNoPermitidaExcepcion | PlacaNoValidaExcepcion | SinCupoExcepcion excepcion){
+        } catch (PlacaNoPermitidaExcepcion | PlacaNoValidaExcepcion | SinCupoExcepcion excepcion) {
             vista.mostrarDialogoAlerta(R.string.informacion, excepcion.getMessage());
         }
     }

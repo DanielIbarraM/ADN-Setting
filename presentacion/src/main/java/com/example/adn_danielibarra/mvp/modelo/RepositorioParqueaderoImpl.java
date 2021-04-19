@@ -40,10 +40,10 @@ public class RepositorioParqueaderoImpl implements RepositorioParqueadero {
         presentador.mostrarVehiculos(vehiculoLista);
     }
 
-    private void ordenarListaPorFechaDescendente (List<Vehiculo> vehiculoLista) {
-        System.out.println("lista --- "+vehiculoLista);
+    private void ordenarListaPorFechaDescendente(List<Vehiculo> vehiculoLista) {
+        System.out.println("lista --- " + vehiculoLista);
         Collections.sort(vehiculoLista, new ComparadorFecha());
-        System.out.println("lista --- "+vehiculoLista);
+        System.out.println("lista --- " + vehiculoLista);
     }
 
     @Override

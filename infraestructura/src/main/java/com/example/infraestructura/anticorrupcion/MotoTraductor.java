@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MotoTraductor {
 
-    public static Moto mapearMotoBdAMotoDominio (MotoBd motoBd) throws Exception{
+    public static Moto mapearMotoBdAMotoDominio(MotoBd motoBd) throws Exception {
         if (motoBd == null) throw new NullPointerException();
         Moto moto = new Moto(motoBd.obtenerPlaca(), motoBd.obtenerCilindraje());
         moto.modificarFechaIngreso(FechaTraductor.mapearDeLongACalendar(motoBd.obtenerFechaIngreso()));
@@ -16,7 +16,7 @@ public class MotoTraductor {
         return moto;
     }
 
-    public static MotoBd mapearDeMotoDominioAMotoDb (Moto moto) {
+    public static MotoBd mapearDeMotoDominioAMotoDb(Moto moto) {
         if (moto == null) throw new NullPointerException();
         MotoBd motoBd = new MotoBd();
         motoBd.modificarPlaca(moto.obtenerPlaca());
@@ -26,25 +26,27 @@ public class MotoTraductor {
         return motoBd;
     }
 
-    public static List<Moto> mapearListaDeMotosDbAMotoDominio (List<MotoBd> motoBdLista) throws Exception{
+    public static List<Moto> mapearListaDeMotosDbAMotoDominio(List<MotoBd> motoBdLista) throws Exception {
         if (motoBdLista == null) throw new NullPointerException();
         List<Moto> listaMoto = new ArrayList<>();
         for (MotoBd motoBd : motoBdLista) {
             try {
                 listaMoto.add(mapearMotoBdAMotoDominio(motoBd));
-            }catch (Exception e){}
+            } catch (Exception e) {
+            }
 
         }
         return listaMoto;
     }
 
-    public static List<MotoBd> mapearListaDeMotoDominioAMotoDb (List<Moto> carroDominioLista) throws Exception{
+    public static List<MotoBd> mapearListaDeMotoDominioAMotoDb(List<Moto> carroDominioLista) throws Exception {
         if (carroDominioLista == null) throw new NullPointerException();
         List<MotoBd> listaMotoBd = new ArrayList<>();
-        for (Moto carro: carroDominioLista) {
+        for (Moto carro : carroDominioLista) {
             try {
                 listaMotoBd.add(mapearDeMotoDominioAMotoDb(carro));
-            } catch (Exception e){}
+            } catch (Exception e) {
+            }
 
         }
         return listaMotoBd;
