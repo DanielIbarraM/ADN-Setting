@@ -4,7 +4,6 @@ import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
 import com.example.dominio.excepcionnegocio.SinCupoExcepcion;
 import com.example.dominio.modelo.Vehiculo;
 import com.example.dominio.modelo.parqueadero.Parqueadero;
-import com.example.dominio.modelo.parqueadero.ingresoparqueadero.IngresoParqueadero;
 import com.example.dominio.repositorio.VehiculoRepositorio;
 import com.example.dominio.servicio.contrato.ContratoParqueadero;
 
@@ -15,14 +14,12 @@ public class ParqueaderoServicio implements ContratoParqueadero {
 
     VehiculoRepositorio carroRepositorio;
     VehiculoRepositorio motoRepositorio;
-    IngresoParqueadero ingresoParqueadero;
     Parqueadero parqueadero;
 
     public ParqueaderoServicio(VehiculoRepositorio carroRepositorio, VehiculoRepositorio motoRepositorio) {
         this.carroRepositorio = carroRepositorio;
         this.motoRepositorio = motoRepositorio;
         parqueadero = new Parqueadero();
-        ingresoParqueadero = new IngresoParqueadero(parqueadero);
     }
 
     public void eliminarCarro (Vehiculo vehiculo) {
@@ -54,7 +51,7 @@ public class ParqueaderoServicio implements ContratoParqueadero {
             throw new SinCupoExcepcion();
         }
 
-        ingresoParqueadero.validarIngreso(vehiculo, Calendar.getInstance());
+        parqueadero.validarIngresoVehiculo(vehiculo, Calendar.getInstance());
 
     }
 
@@ -84,6 +81,6 @@ public class ParqueaderoServicio implements ContratoParqueadero {
         }
 
 
-        ingresoParqueadero.validarIngreso(vehiculo, Calendar.getInstance());
+        parqueadero.validarIngresoVehiculo(vehiculo, Calendar.getInstance());
     }
 }
