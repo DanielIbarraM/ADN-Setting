@@ -11,7 +11,7 @@ import java.util.Calendar;
 
 import static org.junit.Assert.fail;
 
-public class IngresoServicioParqueaderoTest {
+public class IngresoServicioParqueaderoBaseTest {
 
     Parqueadero parqueadero;
     IngresoParqueadero ingresoParqueadero;

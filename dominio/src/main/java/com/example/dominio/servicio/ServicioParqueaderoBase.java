@@ -9,13 +9,13 @@ import com.example.dominio.servicio.contrato.ContratoParqueadero;
 import java.util.Calendar;
 import java.util.List;
 
-public class ServicioParqueadero implements ContratoParqueadero {
+public class ServicioParqueaderoBase implements ContratoParqueadero {
 
     Parqueadero parqueadero;
     ServicioEntradaParqueadero servicioEntradaParqueadero;
     ServicioSalidaParqueadero servicioSalidaParqueadero;
 
-    public ServicioParqueadero(VehiculoRepositorio carroRepositorio, VehiculoRepositorio motoRepositorio) {
+    public ServicioParqueaderoBase(VehiculoRepositorio carroRepositorio, VehiculoRepositorio motoRepositorio) {
         parqueadero = new Parqueadero();
         servicioEntradaParqueadero = new ServicioEntradaParqueadero(carroRepositorio, motoRepositorio, parqueadero);
         servicioSalidaParqueadero = new ServicioSalidaParqueadero(carroRepositorio, motoRepositorio, parqueadero);
