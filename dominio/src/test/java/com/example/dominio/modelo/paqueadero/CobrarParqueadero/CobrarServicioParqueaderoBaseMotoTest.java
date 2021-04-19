@@ -1,6 +1,6 @@
 package com.example.dominio.modelo.paqueadero.CobrarParqueadero;
 
-import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
+import com.example.dominio.excepcionnegocio.FechaSalidaErroneaExcepcion;
 import com.example.dominio.modelo.Moto;
 import com.example.dominio.modelo.parqueadero.Parqueadero;
 
@@ -26,7 +26,7 @@ public class CobrarServicioParqueaderoBaseMotoTest {
     }
 
     @Test
-    public void calcularTotalMotoConHoraFinalAnteriorAhoraDeSalidaConCilindrajeMenorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConHoraFinalAnteriorAhoraDeSalidaConCilindrajeMenorAQuinientos_devuelveFechaSalidaErroneaExcepcion (){
         //Arrange
         vehiculo.modificarCilindraje(200);
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
@@ -34,15 +34,16 @@ public class CobrarServicioParqueaderoBaseMotoTest {
         calendar.setTimeInMillis(calendar.getTimeInMillis()-tiempo);
         //Act
         try {
-            int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
+            parqueadero.calcularTotalVehiculo(vehiculo, calendar);
             fail();
-        } catch (FechaSalidaErronea e) {
-            assertEquals(FechaSalidaErronea.class.getName(), e.getClass().getName());
+        } catch (FechaSalidaErroneaExcepcion e) {
+            //Assert
+            assertEquals(new FechaSalidaErroneaExcepcion().getMessage(), e.getMessage());
         }
     }
 
     @Test
-    public void calcularTotalMotoConHoraFinalAnteriorAhoraDeSalidaConCilindrajeDeQuinientos (){
+    public void calcularTotal_calcularTotalMotoConHoraFinalAnteriorAhoraDeSalidaConCilindrajeDeQuinientos_devuelveFechaSalidaErroneaExcepcion (){
         //Arrange
         vehiculo.modificarCilindraje(500);
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
@@ -52,14 +53,14 @@ public class CobrarServicioParqueaderoBaseMotoTest {
         try {
             parqueadero.calcularTotalVehiculo(vehiculo, calendar);
             fail();
-        } catch (FechaSalidaErronea e) {
-            assertEquals(FechaSalidaErronea.class.getName(), e.getClass().getName());
+        } catch (FechaSalidaErroneaExcepcion e) {
+            //Assert
+            assertEquals(new FechaSalidaErroneaExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
     }
 
     @Test
-    public void calcularTotalMotoConHoraFinalAnteriorAhoraDeSalidaConCilindrajeMayorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConHoraFinalAnteriorAhoraDeSalidaConCilindrajeMayorAQuinientos_devuelveFechaSalidaErroneaExcepcion (){
         //Arrange
         vehiculo.modificarCilindraje(600);
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
@@ -69,14 +70,14 @@ public class CobrarServicioParqueaderoBaseMotoTest {
         try {
             parqueadero.calcularTotalVehiculo(vehiculo, calendar);
             fail();
-        } catch (FechaSalidaErronea e) {
-            assertEquals(FechaSalidaErronea.class.getName(), e.getClass().getName());
+        } catch (FechaSalidaErroneaExcepcion e) {
+            //Assert
+            assertEquals(new FechaSalidaErroneaExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
     }
 
     @Test
-    public void calcularTotalMotoConHoraSalidaYLlegadaIgualesConCilindrajeMenorAQuinientos  (){
+    public void calcularTotal_calcularTotalMotoConHoraSalidaYLlegadaIgualesConCilindrajeMenorAQuinientos_devuelveFechaSalidaErroneaExcepcion (){
         //Arrange
         vehiculo.modificarCilindraje(300);
         vehiculo.modificarFechaIngreso(calendar);
@@ -84,15 +85,16 @@ public class CobrarServicioParqueaderoBaseMotoTest {
         try {
             int valorTotal = parqueadero.calcularTotalVehiculo(vehiculo, calendar);
             fail();
-        } catch (FechaSalidaErronea e) {
-            assertEquals(FechaSalidaErronea.class.getName(), e.getClass().getName());
+        } catch (FechaSalidaErroneaExcepcion e) {
+            //Assert
+            assertEquals(new FechaSalidaErroneaExcepcion().getMessage(), e.getMessage());
         }
 
         //Assert
     }
 
     @Test
-    public void calcularTotalMotoConCuatroHorasParqueadoConCilindrajeMayorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConCuatroHorasParqueadoConCilindrajeMayorAQuinientos_exitosoValoresIguales (){
         //Arrange
         vehiculo.modificarCilindraje(600);
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
@@ -105,7 +107,7 @@ public class CobrarServicioParqueaderoBaseMotoTest {
     }
 
     @Test
-    public void calcularTotalMotoConCuatroHorasParqueadoConCilindrajeMenorAQuinientos(){
+    public void calcularTotal_calcularTotalMotoConCuatroHorasParqueadoConCilindrajeMenorAQuinientos_exitosoValoresIguales(){
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*4;
@@ -117,7 +119,7 @@ public class CobrarServicioParqueaderoBaseMotoTest {
     }
 
     @Test
-    public void calcularTotalMotoConOchoHorasParqueadoConCilindrajeMenorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConOchoHorasParqueadoConCilindrajeMenorAQuinientos_exitosoValoresIguales (){
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*8;
@@ -129,7 +131,7 @@ public class CobrarServicioParqueaderoBaseMotoTest {
     }
 
     @Test
-    public void calcularTotalMotoConOchoHorasParqueadoConCilindrajeMayorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConOchoHorasParqueadoConCilindrajeMayorAQuinientos_exitosoValoresIguales (){
         //Arrange
         vehiculo.modificarCilindraje(700);
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
@@ -142,7 +144,7 @@ public class CobrarServicioParqueaderoBaseMotoTest {
     }
 
     @Test
-    public void calcularTotalMotoConVeinteHorasParqueadoCobroPorDiaConCilindrajeMenorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConVeinteHorasParqueadoCobroPorDiaConCilindrajeMenorAQuinientos_exitosoValoresIguales (){
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*20;
@@ -154,7 +156,7 @@ public class CobrarServicioParqueaderoBaseMotoTest {
     }
 
     @Test
-    public void calcularTotalMotoConVeinteHorasParqueadoCobroPorDiaConCilindrajeMayorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConVeinteHorasParqueadoCobroPorDiaConCilindrajeMayorAQuinientos_exitosoValoresIguales (){
         //Arrange
         vehiculo.modificarCilindraje(800);
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
@@ -167,7 +169,7 @@ public class CobrarServicioParqueaderoBaseMotoTest {
     }
 
     @Test
-    public void calcularTotalMotoConVeinteSeisHorasParqueadoCobroPorDiaConCilindrajeMenorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConVeinteSeisHorasParqueadoCobroPorDiaConCilindrajeMenorAQuinientos_exitosoValoresIguales (){
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*26;
@@ -179,7 +181,7 @@ public class CobrarServicioParqueaderoBaseMotoTest {
     }
 
     @Test
-    public void calcularTotalMotoConVeinteSeisHorasParqueadoCobroPorDiaConCilindrajeMayorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConVeinteSeisHorasParqueadoCobroPorDiaConCilindrajeMayorAQuinientos_exitosoValoresIguales (){
         //Arrange
         vehiculo.modificarCilindraje(700);
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
@@ -192,7 +194,7 @@ public class CobrarServicioParqueaderoBaseMotoTest {
     }
 
     @Test
-    public void calcularTotalMotoConSetentaYCincoHorasParqueadoCobroPorDiaConCilindrajeMenorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConSetentaYCincoHorasParqueadoCobroPorDiaConCilindrajeMenorAQuinientos_exitosoValoresIguales (){
         //Arrange
         vehiculo.modificarFechaIngreso(Calendar.getInstance());
         long tiempo = parqueadero.obtenerHoraEnMilisegundos()*75;
@@ -204,7 +206,7 @@ public class CobrarServicioParqueaderoBaseMotoTest {
     }
 
     @Test
-    public void calcularTotalMotoConSetentaYCincoHorasParqueadoCobroPorDiaConCilindrajeMMayorAQuinientos (){
+    public void calcularTotal_calcularTotalMotoConSetentaYCincoHorasParqueadoCobroPorDiaConCilindrajeMMayorAQuinientos_exitosoValoresIguales (){
         //Arrange
         vehiculo.modificarCilindraje(800);
         vehiculo.modificarFechaIngreso(Calendar.getInstance());

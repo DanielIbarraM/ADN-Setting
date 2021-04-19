@@ -1,6 +1,6 @@
 package com.example.dominio.servicio;
 
-import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
+import com.example.dominio.excepcionnegocio.FechaSalidaErroneaExcepcion;
 import com.example.dominio.modelo.Vehiculo;
 import com.example.dominio.modelo.parqueadero.Parqueadero;
 import com.example.dominio.repositorio.VehiculoRepositorio;
@@ -30,7 +30,7 @@ public class ServicioParqueaderoBase implements ContratoParqueadero {
     }
 
     @Override
-    public int calcularValorTotal (Vehiculo vehiculo) throws FechaSalidaErronea {
+    public int calcularValorTotal (Vehiculo vehiculo) throws FechaSalidaErroneaExcepcion {
         return parqueadero.calcularTotalVehiculo(vehiculo, Calendar.getInstance());
     }
 

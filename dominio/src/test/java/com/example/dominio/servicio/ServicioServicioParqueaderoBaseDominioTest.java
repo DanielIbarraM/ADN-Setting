@@ -1,5 +1,7 @@
 package com.example.dominio.servicio;
 
+import com.example.dominio.excepcionnegocio.PlacaNoValidaExcepcion;
+import com.example.dominio.excepcionnegocio.SinCupoExcepcion;
 import com.example.dominio.modelo.Carro;
 import com.example.dominio.modelo.Moto;
 import com.example.dominio.modelo.Vehiculo;
@@ -10,8 +12,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.when;
 
 public class ServicioServicioParqueaderoBaseDominioTest {
 
@@ -27,7 +30,7 @@ public class ServicioServicioParqueaderoBaseDominioTest {
     }
 
     @Test
-    public void guardarCarroTeniedoDiezCarrosParqueados () {
+    public void guardarCarro_guardarCarroTeniedoDiezCarrosParqueados_exitosoNodebeEntrarEnELCatch () {
         //Arrange
         Vehiculo vehiculo = new Carro("QWET-132");
         when(carroRepositorioPersistencia.obtenerCantidadVehiculos()).thenReturn(10);
@@ -35,13 +38,13 @@ public class ServicioServicioParqueaderoBaseDominioTest {
         try {
             parqueaderoServicioDominio.guardarCarro(vehiculo);
         } catch (Exception e) {
+            //Assert
             fail();
         }
-        //Assert
     }
 
     @Test
-    public void guardarCarroTeniedoVeinteCarrosParqueados () {
+    public void guardarCarro_guardarCarroTeniedoVeinteCarrosParqueados_devuelveSinCupoExcepcion () {
         //Arrange
         Vehiculo vehiculo = new Carro("QWET-132");
         when(carroRepositorioPersistencia.obtenerCantidadVehiculos()).thenReturn(20);
@@ -49,13 +52,15 @@ public class ServicioServicioParqueaderoBaseDominioTest {
         try {
             parqueaderoServicioDominio.guardarCarro(vehiculo);
             fail();
-        } catch (Exception e) {
+        } catch (SinCupoExcepcion e) {
+            //Assert
+            assertEquals(new SinCupoExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
+
     }
 
     @Test
-    public void guardarMotoTeniedoCincoMotosParqueados () {
+    public void guardarMoto_guardarMotoTeniedoCincoMotosParqueados_exitosoNodebeEntrarEnELCatch () {
         //Arrange
         Vehiculo vehiculo = new Moto("QWET-132", 200);
         when(motoRepositorioPersistencia.obtenerCantidadVehiculos()).thenReturn(5);
@@ -63,13 +68,13 @@ public class ServicioServicioParqueaderoBaseDominioTest {
         try {
             parqueaderoServicioDominio.guardarMoto(vehiculo);
         } catch (Exception e) {
+            //Assert
             fail();
         }
-        //Assert
     }
 
     @Test
-    public void guardarMotoTeniedoDiezMotoParqueados () {
+    public void guardarMoto_guardarMotoTeniedoDiezMotoParqueados_devuelveSinCupoExcepcion () {
         //Arrange
         Vehiculo vehiculo = new Moto("QWET-132", 200);
         when(motoRepositorioPersistencia.obtenerCantidadVehiculos()).thenReturn(10);
@@ -77,13 +82,14 @@ public class ServicioServicioParqueaderoBaseDominioTest {
         try {
             parqueaderoServicioDominio.guardarMoto(vehiculo);
             fail();
-        } catch (Exception e) {
+        } catch (SinCupoExcepcion e) {
+            //Assert
+            assertEquals(new SinCupoExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
     }
 
     @Test
-    public void guardarCarroConPlacaNula () {
+    public void guardarCarro_guardarCarroConPlacaNula_devuelvePlacaNoValidaExcepcion () {
         //Arrange
         Vehiculo vehiculo = new Carro(null);
         when(motoRepositorioPersistencia.obtenerCantidadVehiculos()).thenReturn(2);
@@ -91,13 +97,14 @@ public class ServicioServicioParqueaderoBaseDominioTest {
         try {
             parqueaderoServicioDominio.guardarMoto(vehiculo);
             fail();
-        } catch (Exception e) {
+        } catch (PlacaNoValidaExcepcion e) {
+            //Assert
+            assertEquals(new PlacaNoValidaExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
     }
 
     @Test
-    public void guardarMotoConPlacaNula () {
+    public void guardarMoto_guardarMotoConPlacaNula_devuelvePlacaNoValidaExcepcion () {
         //Arrange
         Vehiculo vehiculo = new Moto(null, 200);
         when(motoRepositorioPersistencia.obtenerCantidadVehiculos()).thenReturn(2);
@@ -105,13 +112,14 @@ public class ServicioServicioParqueaderoBaseDominioTest {
         try {
             parqueaderoServicioDominio.guardarMoto(vehiculo);
             fail();
-        } catch (Exception e) {
+        } catch (PlacaNoValidaExcepcion e) {
+            //Assert
+            assertEquals(new PlacaNoValidaExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
     }
 
     @Test
-    public void guardarCarroConPlacaVacia () {
+    public void guardarCarro_guardarCarroConPlacaVacia_devuelvePlacaNoValidaExcepcion () {
         //Arrange
         Vehiculo vehiculo = new Carro("");
         when(motoRepositorioPersistencia.obtenerCantidadVehiculos()).thenReturn(2);
@@ -119,13 +127,14 @@ public class ServicioServicioParqueaderoBaseDominioTest {
         try {
             parqueaderoServicioDominio.guardarMoto(vehiculo);
             fail();
-        } catch (Exception e) {
+        } catch (PlacaNoValidaExcepcion e) {
+            //Assert
+            assertEquals(new PlacaNoValidaExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
     }
 
     @Test
-    public void guardarMotoConPlacaVacia () {
+    public void guardarMoto_guardarMotoConPlacaVacia_devuelvePlacaNoValidaExcepcion () {
         //Arrange
         Vehiculo vehiculo = new Moto("", 200);
         when(motoRepositorioPersistencia.obtenerCantidadVehiculos()).thenReturn(2);
@@ -133,9 +142,10 @@ public class ServicioServicioParqueaderoBaseDominioTest {
         try {
             parqueaderoServicioDominio.guardarMoto(vehiculo);
             fail();
-        } catch (Exception e) {
+        } catch (PlacaNoValidaExcepcion e) {
+            //Assert
+            assertEquals(new PlacaNoValidaExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
     }
 
 

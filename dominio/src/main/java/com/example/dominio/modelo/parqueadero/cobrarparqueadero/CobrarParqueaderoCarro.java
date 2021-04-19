@@ -1,7 +1,7 @@
 package com.example.dominio.modelo.parqueadero.cobrarparqueadero;
 
 
-import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
+import com.example.dominio.excepcionnegocio.FechaSalidaErroneaExcepcion;
 import com.example.dominio.modelo.Vehiculo;
 import com.example.dominio.modelo.parqueadero.Parqueadero;
 
@@ -17,7 +17,7 @@ public class CobrarParqueaderoCarro extends CobrarParqueaderoBase {
     }
 
     @Override
-    public int calcularTotal(Vehiculo vehiculo, Calendar fechaSalida) throws FechaSalidaErronea {
+    public int calcularTotal(Vehiculo vehiculo, Calendar fechaSalida) throws FechaSalidaErroneaExcepcion {
         vehiculo.modificarFechaSalida(fechaSalida);
         this.modificarVehiculo(vehiculo);
         return cobrarParqueaderoPorVehiculo(obtenerValorHoraCarro(), obtenerValorDiaCarro());

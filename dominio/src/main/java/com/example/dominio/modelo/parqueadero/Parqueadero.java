@@ -1,6 +1,6 @@
 package com.example.dominio.modelo.parqueadero;
 
-import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
+import com.example.dominio.excepcionnegocio.FechaSalidaErroneaExcepcion;
 import com.example.dominio.excepcionnegocio.PlacaNoPermitidaExcepcion;
 import com.example.dominio.excepcionnegocio.PlacaNoValidaExcepcion;
 import com.example.dominio.modelo.Carro;
@@ -39,7 +39,7 @@ public class Parqueadero {
         ingresoParqueadero.validarIngreso(vehiculo, calendar);
     }
 
-    public int calcularTotalVehiculo (Vehiculo vehiculo, Calendar calendar) throws FechaSalidaErronea {
+    public int calcularTotalVehiculo (Vehiculo vehiculo, Calendar calendar) throws FechaSalidaErroneaExcepcion {
         int total = 0;
         if (vehiculo instanceof Carro) {
             total = cobrarParqueaderoBaseCarro.calcularTotal(vehiculo, calendar);

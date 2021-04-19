@@ -1,7 +1,7 @@
 package com.example.dominio.modelo.parqueadero.cobrarparqueadero;
 
 
-import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
+import com.example.dominio.excepcionnegocio.FechaSalidaErroneaExcepcion;
 import com.example.dominio.modelo.Vehiculo;
 import com.example.dominio.modelo.parqueadero.Parqueadero;
 
@@ -18,13 +18,13 @@ public abstract class CobrarParqueaderoBase {
         return (int) Math.ceil(resultado);
     }
 
-    private void verificarFechaSalidaPosteriorFechaEntrada () throws FechaSalidaErronea {
+    private void verificarFechaSalidaPosteriorFechaEntrada () throws FechaSalidaErroneaExcepcion {
         if (obtenerVehiculo().obtenerFechaSalida().compareTo(obtenerVehiculo().obtenerFechaIngreso()) <= 0){
-            throw new FechaSalidaErronea();
+            throw new FechaSalidaErroneaExcepcion();
         }
     }
 
-    protected int cobrarParqueaderoPorVehiculo(int valorPorHora, int valorPorDia) throws FechaSalidaErronea {
+    protected int cobrarParqueaderoPorVehiculo(int valorPorHora, int valorPorDia) throws FechaSalidaErroneaExcepcion {
         int horasParqueadas;
         int valorPagar = 0;
 

@@ -1,5 +1,6 @@
 package com.example.dominio.modelo.paqueadero.ingresoParqueadero;
 
+import com.example.dominio.excepcionnegocio.PlacaNoPermitidaExcepcion;
 import com.example.dominio.modelo.Carro;
 import com.example.dominio.modelo.parqueadero.Parqueadero;
 import com.example.dominio.modelo.parqueadero.ingresoparqueadero.IngresoParqueadero;
@@ -9,6 +10,7 @@ import org.junit.Test;
 
 import java.util.Calendar;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 public class IngresoServicioParqueaderoBaseTest {
@@ -23,7 +25,7 @@ public class IngresoServicioParqueaderoBaseTest {
     }
 
     @Test
-    public void validarIngresoVehiculoPlacaMayusculaSinInicialADiaMiercoles () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaSinInicialADiaMiercoles_exitosoNoDebeEntrarAlCatch () {
         //Arrange
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021,03,14);
@@ -38,7 +40,7 @@ public class IngresoServicioParqueaderoBaseTest {
     }
 
     @Test
-    public void validarIngresoVehiculoPlacaMayusculaSinInicialADiaDomingo () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaSinInicialADiaDomingo_exitosoNoDebeEntrarAlCatch () {
         //Arrange
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021,03,11);
@@ -52,7 +54,7 @@ public class IngresoServicioParqueaderoBaseTest {
     }
 
     @Test
-    public void validarIngresoVehiculoPlacaMayusculaConInicialADiaDomingo () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaDomingo_exitosoDebeDevolverPlacanoPermitidaExcepcion () {
         //Arrange
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021,03,11);
@@ -60,13 +62,15 @@ public class IngresoServicioParqueaderoBaseTest {
         try {
             ingresoParqueadero.validarIngreso(new Carro("AWERTY"), calendar);
             fail();
-        }catch (Exception e){
+        }catch (PlacaNoPermitidaExcepcion e){
+            //Assert
+            assertEquals(new PlacaNoPermitidaExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
+
     }
 
     @Test
-    public void validarIngresoVehiculoPlacaMayusculaConInicialADiaLunes () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaLunes_exitosoDebeDevolverPlacanoPermitidaExcepcion () {
         //Arrange
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021,03,12);
@@ -74,13 +78,14 @@ public class IngresoServicioParqueaderoBaseTest {
         try {
             ingresoParqueadero.validarIngreso(new Carro("AWERTY"), calendar);
             fail();
-        }catch (Exception e){
+        }catch (PlacaNoPermitidaExcepcion e){
+            //Assert
+            assertEquals(new PlacaNoPermitidaExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
     }
 
     @Test
-    public void validarIngresoVehiculoPlacaMayusculaConInicialADiaMartes () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaMartes_exitosoNoDebeEntrarAlCatch () {
         //Arrange
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021,03,13);
@@ -94,7 +99,7 @@ public class IngresoServicioParqueaderoBaseTest {
     }
 
     @Test
-    public void validarIngresoVehiculoPlacaMinusculaConInicialADiaDomingo () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMinusculaConInicialADiaDomingo_exitosoDebeDevolverPlacanoPermitidaExcepcion () {
         //Arrange
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021,03,11);
@@ -102,13 +107,14 @@ public class IngresoServicioParqueaderoBaseTest {
         try {
             ingresoParqueadero.validarIngreso(new Carro("awerty"), calendar);
             fail();
-        }catch (Exception e){
+        }catch (PlacaNoPermitidaExcepcion e){
+            //Assert
+            assertEquals(new PlacaNoPermitidaExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
     }
 
     @Test
-    public void validarIngresoVehiculoPlacaMinusculaConInicialADiaLunes () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMinusculaConInicialADiaLunes_exitosoDebeDevolverPlacanoPermitidaExcepcion () {
         //Arrange
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021,03,12);
@@ -116,13 +122,14 @@ public class IngresoServicioParqueaderoBaseTest {
         try {
             ingresoParqueadero.validarIngreso(new Carro("awertyy"), calendar);
             fail();
-        }catch (Exception e){
+        }catch (PlacaNoPermitidaExcepcion e){
+            //Assert
+            assertEquals(new PlacaNoPermitidaExcepcion().getMessage(), e.getMessage());
         }
-        //Assert
     }
 
     @Test
-    public void validarIngresoVehiculoPlacaMinusculaConInicialADiaMartes () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMinusculaConInicialADiaMartes_exitosoNoDebeEntrarAlCatch () {
         //Arrange
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021,03,13);
@@ -136,7 +143,7 @@ public class IngresoServicioParqueaderoBaseTest {
     }
 
     @Test
-    public void validarIngresoVehiculoPlacaMayusculaConInicialADiaViernes () {
+    public void validarIngreso_validarIngresoVehiculoPlacaMayusculaConInicialADiaViernes_exitosoNoDebeEntrarAlCatch () {
         //Arrange
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021,03,16);
