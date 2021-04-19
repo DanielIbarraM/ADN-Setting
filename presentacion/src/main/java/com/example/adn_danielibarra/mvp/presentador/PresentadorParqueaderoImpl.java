@@ -3,7 +3,7 @@ package com.example.adn_danielibarra.mvp.presentador;
 import android.content.Context;
 
 import com.example.adn_danielibarra.R;
-import com.example.adn_danielibarra.mvp.modelo.RepositorioParqueadero;
+import com.example.adn_danielibarra.mvp.modelo.RepositorioParqueaderoImpl;
 import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorParqueadero;
 import com.example.adn_danielibarra.mvp.vista.contratos.VistaParqueadero;
 import com.example.dominio.excepcionnegocio.PlacaNoPermitidaExcepcion;
@@ -20,7 +20,7 @@ public class PresentadorParqueaderoImpl implements PresentadorParqueadero {
 
     public PresentadorParqueaderoImpl(VistaParqueadero vistaParqueadero, Context context) {
         this.vista = vistaParqueadero;
-        this.repositorio = new RepositorioParqueadero(this, context);
+        this.repositorio = new RepositorioParqueaderoImpl(this, context);
     }
 
     @Override
