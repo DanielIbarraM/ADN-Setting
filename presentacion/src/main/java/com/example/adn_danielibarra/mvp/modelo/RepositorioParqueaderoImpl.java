@@ -2,6 +2,7 @@ package com.example.adn_danielibarra.mvp.modelo;
 
 import android.content.Context;
 
+import com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioParqueadero;
 import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorParqueadero;
 import com.example.dominio.modelo.Moto;
 import com.example.dominio.modelo.Vehiculo;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RepositorioParqueaderoImpl implements com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioParqueadero {
+public class RepositorioParqueaderoImpl implements RepositorioParqueadero {
 
     private PresentadorParqueadero presentador;
     private VehiculoRepositorio vehiculoRepositorioCarro;

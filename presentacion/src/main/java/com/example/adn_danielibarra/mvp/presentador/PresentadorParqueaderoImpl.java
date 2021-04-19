@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.adn_danielibarra.R;
 import com.example.adn_danielibarra.mvp.modelo.RepositorioParqueaderoImpl;
+import com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioParqueadero;
 import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorParqueadero;
 import com.example.adn_danielibarra.mvp.vista.contratos.VistaParqueadero;
 import com.example.dominio.excepcionnegocio.PlacaNoPermitidaExcepcion;
@@ -16,7 +17,7 @@ import java.util.List;
 public class PresentadorParqueaderoImpl implements PresentadorParqueadero {
 
     VistaParqueadero vista;
-    com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioParqueadero repositorio;
+    RepositorioParqueadero repositorio;
 
     public PresentadorParqueaderoImpl(VistaParqueadero vistaParqueadero, Context context) {
         this.vista = vistaParqueadero;
