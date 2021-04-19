@@ -19,7 +19,7 @@ public class MotoRepositorioRoom implements VehiculoRepositorio {
     MotoDao motoDao;
 
     public MotoRepositorioRoom(Context contexto) {
-        motoDao = AdministradorBaseDeDatos.obtenerInstancia(contexto).obtenerMotoDao();
+        motoDao = AdministradorBaseDeDatos.obtenerInstancia(contexto).motoDao();
     }
 
     @Override

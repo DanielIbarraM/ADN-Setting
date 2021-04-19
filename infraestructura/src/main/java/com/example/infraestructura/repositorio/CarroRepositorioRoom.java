@@ -19,7 +19,7 @@ public class CarroRepositorioRoom  implements VehiculoRepositorio {
     private CarroDao carroDao;
 
     public CarroRepositorioRoom (Context contexto) {
-        carroDao = AdministradorBaseDeDatos.obtenerInstancia(contexto).obtenerCarroDao();
+        carroDao = AdministradorBaseDeDatos.obtenerInstancia(contexto).carroDao();
     }
 
     @Override
