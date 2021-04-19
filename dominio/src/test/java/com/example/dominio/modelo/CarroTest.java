@@ -1,8 +1,5 @@
 package com.example.dominio.modelo;
 
-import com.example.dominio.modelo.entidad.Carro;
-import com.example.dominio.modelo.entidad.Vehiculo;
-
 import org.junit.Test;
 
 import java.util.Calendar;

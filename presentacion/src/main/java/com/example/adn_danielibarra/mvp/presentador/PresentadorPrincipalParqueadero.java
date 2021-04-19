@@ -10,7 +10,7 @@ import com.example.adn_danielibarra.mvp.vista.contratos.VistaPrincipal;
 import com.example.dominio.excepcionnegocio.PlacaNoPermitidaExcepcion;
 import com.example.dominio.excepcionnegocio.PlacaNoValidaExcepcion;
 import com.example.dominio.excepcionnegocio.SinCupoExcepcion;
-import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.Vehiculo;
 
 import java.util.List;
 

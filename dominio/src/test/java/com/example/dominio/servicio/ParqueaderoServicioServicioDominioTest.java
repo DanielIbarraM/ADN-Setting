@@ -1,8 +1,8 @@
 package com.example.dominio.servicio;
 
-import com.example.dominio.modelo.entidad.Carro;
-import com.example.dominio.modelo.entidad.Moto;
-import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.Carro;
+import com.example.dominio.modelo.Moto;
+import com.example.dominio.modelo.Vehiculo;
 import com.example.dominio.repositorio.VehiculoRepositorio;
 import com.example.dominio.servicio.contrato.ContratoParqueadero;
 

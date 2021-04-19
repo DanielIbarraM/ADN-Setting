@@ -1,4 +1,4 @@
-package com.example.dominio.modelo.entidad;
+package com.example.dominio.modelo;
 
 import java.util.Calendar;
 

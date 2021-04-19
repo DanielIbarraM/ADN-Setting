@@ -1,6 +1,6 @@
 package com.example.adn_danielibarra.mvp.vista.contratos;
 
-import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.Vehiculo;
 
 import java.util.List;
 

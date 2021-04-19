@@ -3,8 +3,8 @@ package com.example.infraestructura.repositorio;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.example.dominio.modelo.entidad.Moto;
-import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.Moto;
+import com.example.dominio.modelo.Vehiculo;
 import com.example.dominio.repositorio.VehiculoRepositorio;
 import com.example.infraestructura.anticorrupcion.MotoTraductor;
 import com.example.infraestructura.bd.MotoDao;

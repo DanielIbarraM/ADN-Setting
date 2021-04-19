@@ -21,7 +21,7 @@ import com.example.adn_danielibarra.mvp.presentador.PresentadorPrincipalParquead
 import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorPrincipal;
 import com.example.adn_danielibarra.mvp.vista.contratos.VistaPrincipal;
 import com.example.adn_danielibarra.mvp.vista.dialogo.DialogoIngresar;
-import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.Vehiculo;
 
 import java.util.ArrayList;
 import java.util.List;

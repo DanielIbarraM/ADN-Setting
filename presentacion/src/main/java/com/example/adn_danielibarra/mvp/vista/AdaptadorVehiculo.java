@@ -12,8 +12,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adn_danielibarra.R;
-import com.example.dominio.modelo.entidad.Moto;
-import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.Moto;
+import com.example.dominio.modelo.Vehiculo;
 
 import java.util.ArrayList;
 import java.util.List;

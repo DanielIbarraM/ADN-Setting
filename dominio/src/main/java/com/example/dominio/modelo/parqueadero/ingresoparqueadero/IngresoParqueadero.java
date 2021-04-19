@@ -1,9 +1,9 @@
-package com.example.dominio.modelo.entidad.parqueadero.ingresoparqueadero;
+package com.example.dominio.modelo.parqueadero.ingresoparqueadero;
 
 import com.example.dominio.excepcionnegocio.PlacaNoPermitidaExcepcion;
 import com.example.dominio.excepcionnegocio.PlacaNoValidaExcepcion;
-import com.example.dominio.modelo.entidad.Vehiculo;
-import com.example.dominio.modelo.entidad.parqueadero.Parqueadero;
+import com.example.dominio.modelo.Vehiculo;
+import com.example.dominio.modelo.parqueadero.Parqueadero;
 
 import java.util.Calendar;
 

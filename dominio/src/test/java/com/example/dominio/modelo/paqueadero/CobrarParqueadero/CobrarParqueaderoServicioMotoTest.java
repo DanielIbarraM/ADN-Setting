@@ -1,8 +1,8 @@
 package com.example.dominio.modelo.paqueadero.CobrarParqueadero;
 
 import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
-import com.example.dominio.modelo.entidad.Moto;
-import com.example.dominio.modelo.entidad.parqueadero.Parqueadero;
+import com.example.dominio.modelo.Moto;
+import com.example.dominio.modelo.parqueadero.Parqueadero;
 
 import org.junit.Before;
 import org.junit.Test;

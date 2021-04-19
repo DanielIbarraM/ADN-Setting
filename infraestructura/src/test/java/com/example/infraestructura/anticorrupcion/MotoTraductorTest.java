@@ -1,6 +1,6 @@
 package com.example.infraestructura.anticorrupcion;
 
-import com.example.dominio.modelo.entidad.Moto;
+import com.example.dominio.modelo.Moto;
 import com.example.infraestructura.entidadBd.MotoBd;
 
 import org.junit.Test;

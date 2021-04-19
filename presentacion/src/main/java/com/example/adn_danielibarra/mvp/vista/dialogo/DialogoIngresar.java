@@ -15,9 +15,9 @@ import androidx.fragment.app.DialogFragment;
 import com.example.adn_danielibarra.R;
 import com.example.adn_danielibarra.mvp.vista.MainActivity;
 import com.example.adn_danielibarra.mvp.vista.ObtenerVehiculoIngresado;
-import com.example.dominio.modelo.entidad.Carro;
-import com.example.dominio.modelo.entidad.Moto;
-import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.Carro;
+import com.example.dominio.modelo.Moto;
+import com.example.dominio.modelo.Vehiculo;
 
 import java.util.Calendar;
 

@@ -1,8 +1,8 @@
 package com.example.dominio.modelo.paqueadero.ingresoParqueadero;
 
-import com.example.dominio.modelo.entidad.Carro;
-import com.example.dominio.modelo.entidad.parqueadero.Parqueadero;
-import com.example.dominio.modelo.entidad.parqueadero.ingresoparqueadero.IngresoParqueadero;
+import com.example.dominio.modelo.Carro;
+import com.example.dominio.modelo.parqueadero.Parqueadero;
+import com.example.dominio.modelo.parqueadero.ingresoparqueadero.IngresoParqueadero;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioPrincipal;
 import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorPrincipal;
-import com.example.dominio.modelo.entidad.Moto;
-import com.example.dominio.modelo.entidad.Vehiculo;
+import com.example.dominio.modelo.Moto;
+import com.example.dominio.modelo.Vehiculo;
 import com.example.dominio.repositorio.VehiculoRepositorio;
 import com.example.dominio.servicio.ParqueaderoServicio;
 import com.example.infraestructura.repositorio.CarroRepositorioRoom;

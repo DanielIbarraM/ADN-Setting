@@ -1,15 +1,15 @@
-package com.example.dominio.modelo.entidad.parqueadero;
+package com.example.dominio.modelo.parqueadero;
 
 import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
 import com.example.dominio.excepcionnegocio.PlacaNoPermitidaExcepcion;
 import com.example.dominio.excepcionnegocio.PlacaNoValidaExcepcion;
-import com.example.dominio.modelo.entidad.Carro;
-import com.example.dominio.modelo.entidad.Moto;
-import com.example.dominio.modelo.entidad.Vehiculo;
-import com.example.dominio.modelo.entidad.parqueadero.cobrarparqueadero.CobrarParqueaderoBase;
-import com.example.dominio.modelo.entidad.parqueadero.cobrarparqueadero.CobrarParqueaderoCarro;
-import com.example.dominio.modelo.entidad.parqueadero.cobrarparqueadero.CobrarParqueaderoMoto;
-import com.example.dominio.modelo.entidad.parqueadero.ingresoparqueadero.IngresoParqueadero;
+import com.example.dominio.modelo.Carro;
+import com.example.dominio.modelo.Moto;
+import com.example.dominio.modelo.Vehiculo;
+import com.example.dominio.modelo.parqueadero.cobrarparqueadero.CobrarParqueaderoBase;
+import com.example.dominio.modelo.parqueadero.cobrarparqueadero.CobrarParqueaderoCarro;
+import com.example.dominio.modelo.parqueadero.cobrarparqueadero.CobrarParqueaderoMoto;
+import com.example.dominio.modelo.parqueadero.ingresoparqueadero.IngresoParqueadero;
 
 import java.util.Calendar;
 
