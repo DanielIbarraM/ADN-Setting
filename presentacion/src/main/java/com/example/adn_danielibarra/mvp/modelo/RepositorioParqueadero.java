@@ -2,8 +2,8 @@ package com.example.adn_danielibarra.mvp.modelo;
 
 import android.content.Context;
 
-import com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioPrincipal;
-import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorPrincipal;
+import com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioParqueadero;
+import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorParqueadero;
 import com.example.dominio.modelo.Moto;
 import com.example.dominio.modelo.Vehiculo;
 import com.example.dominio.repositorio.VehiculoRepositorio;
@@ -15,16 +15,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RepositorioPrincipalParqueadero implements RepositorioPrincipal {
+public class RepositorioParqueadero implements com.example.adn_danielibarra.mvp.modelo.contrato.RepositorioParqueadero {
 
-    private PresentadorPrincipal presentador;
+    private PresentadorParqueadero presentador;
     private Context contexto;
     private VehiculoRepositorio vehiculoRepositorioCarro;
     private VehiculoRepositorio vehiculoRepositorioMoto;
     private ServicioParqueaderoBase servicioParqueaderoBase;
     private List<Vehiculo> vehiculoLista;
 
-    public RepositorioPrincipalParqueadero (PresentadorPrincipal presentador, Context contexto) {
+    public RepositorioParqueadero(PresentadorParqueadero presentador, Context contexto) {
         this.presentador = presentador;
         this.contexto = contexto;
         this.vehiculoRepositorioCarro = new CarroRepositorioRoom(contexto);
