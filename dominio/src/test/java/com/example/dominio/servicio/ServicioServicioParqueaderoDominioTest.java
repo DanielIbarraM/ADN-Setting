@@ -13,7 +13,7 @@ import org.mockito.Mockito;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-public class ParqueaderoServicioServicioDominioTest {
+public class ServicioServicioParqueaderoDominioTest {
 
     ContratoParqueadero parqueaderoServicioDominio;
     VehiculoRepositorio carroRepositorioPersistencia;
@@ -23,7 +23,7 @@ public class ParqueaderoServicioServicioDominioTest {
     public void inicializar () {
         carroRepositorioPersistencia = Mockito.mock(VehiculoRepositorio.class);
         motoRepositorioPersistencia = Mockito.mock(VehiculoRepositorio.class);
-        parqueaderoServicioDominio = new ParqueaderoServicio(carroRepositorioPersistencia, motoRepositorioPersistencia);
+        parqueaderoServicioDominio = new ServicioParqueadero(carroRepositorioPersistencia, motoRepositorioPersistencia);
     }
 
     @Test

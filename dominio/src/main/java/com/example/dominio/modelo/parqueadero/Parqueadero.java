@@ -82,22 +82,4 @@ public class Parqueadero {
         return domingo;
     }
 
-    public int obtenerValorHoraCarro() {
-        return ((CobrarParqueaderoCarro)cobrarParqueaderoBaseCarro).obtenerValorHoraCarro();
-    }
-
-    public int obtenerValorDiaCarro() {
-        return ((CobrarParqueaderoCarro)cobrarParqueaderoBaseCarro).obtenerValorDiaCarro();
-    }
-
-    public int obtenerValorHoraMoto() {
-        return ((CobrarParqueaderoMoto)cobrarParqueaderoBaseMoto).obtenerValorHoraMoto();
-    }
-
-    public int obtenerValorDiaMoto() {
-        return ((CobrarParqueaderoMoto)cobrarParqueaderoBaseMoto).obtenerValorDiaMoto();
-    }
-
-
-
 }

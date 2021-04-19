@@ -4,7 +4,7 @@ import com.example.dominio.modelo.Vehiculo;
 
 import java.util.List;
 
-public interface VistaPrincipal extends VistaGeneral{
+public interface VistaPrincipal extends VistaComun {
 
     void obtenerVehiculos ();
 

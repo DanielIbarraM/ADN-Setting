@@ -2,7 +2,7 @@ package com.example.dominio.modelo.paqueadero;
 
 import org.junit.Test;
 
-public class ParqueaderoServicioTest {
+public class ServicioParqueaderoTest {
 
     @Test
     public void validarInstanciaNoNulo () {

@@ -1,7 +1,6 @@
 package com.example.dominio.servicio;
 
 import com.example.dominio.excepcionnegocio.FechaSalidaErronea;
-import com.example.dominio.excepcionnegocio.SinCupoExcepcion;
 import com.example.dominio.modelo.Vehiculo;
 import com.example.dominio.modelo.parqueadero.Parqueadero;
 import com.example.dominio.repositorio.VehiculoRepositorio;
@@ -10,26 +9,24 @@ import com.example.dominio.servicio.contrato.ContratoParqueadero;
 import java.util.Calendar;
 import java.util.List;
 
-public class ParqueaderoServicio implements ContratoParqueadero {
+public class ServicioParqueadero implements ContratoParqueadero {
 
-    VehiculoRepositorio carroRepositorio;
-    VehiculoRepositorio motoRepositorio;
     Parqueadero parqueadero;
+    ServicioEntradaParqueadero servicioEntradaParqueadero;
+    ServicioSalidaParqueadero servicioSalidaParqueadero;
 
-    public ParqueaderoServicio(VehiculoRepositorio carroRepositorio, VehiculoRepositorio motoRepositorio) {
-        this.carroRepositorio = carroRepositorio;
-        this.motoRepositorio = motoRepositorio;
+    public ServicioParqueadero(VehiculoRepositorio carroRepositorio, VehiculoRepositorio motoRepositorio) {
         parqueadero = new Parqueadero();
+        servicioEntradaParqueadero = new ServicioEntradaParqueadero(carroRepositorio, motoRepositorio, parqueadero);
+        servicioSalidaParqueadero = new ServicioSalidaParqueadero(carroRepositorio, motoRepositorio, parqueadero);
     }
 
     public void eliminarCarro (Vehiculo vehiculo) {
-        carroRepositorio.eliminarVehiculo(vehiculo);
+        servicioSalidaParqueadero.eliminarCarro(vehiculo);
     }
 
     public void guardarCarro(Vehiculo vehiculo) {
-        vehiculo.modificarFechaIngreso(Calendar.getInstance());
-        validarIngresoCarro(vehiculo);
-        carroRepositorio.guardarVehiculo(vehiculo);
+        servicioEntradaParqueadero.guardarCarro(vehiculo);
     }
 
     @Override
@@ -38,49 +35,37 @@ public class ParqueaderoServicio implements ContratoParqueadero {
     }
 
     public List<Vehiculo> obtenerCarros () {
-        return carroRepositorio.obtenerVehiculos();
+        return servicioEntradaParqueadero.obtenerCarros();
     }
 
     public int obtenerCantidadCarros() {
-        return carroRepositorio.obtenerCantidadVehiculos();
+        return servicioEntradaParqueadero.obtenerCantidadCarros();
     }
 
     @Override
     public void validarIngresoCarro(Vehiculo vehiculo) {
-        if ((obtenerCantidadCarros()>=parqueadero.obtenerCantidadMaximaCarros())){
-            throw new SinCupoExcepcion();
-        }
-
-        parqueadero.validarIngresoVehiculo(vehiculo, Calendar.getInstance());
+        servicioEntradaParqueadero.validarIngresoCarro(vehiculo);
 
     }
 
     public void eliminarMoto (Vehiculo vehiculo) {
-        motoRepositorio.eliminarVehiculo(vehiculo);
+        servicioSalidaParqueadero.eliminarMoto(vehiculo);
     }
 
     public void guardarMoto(Vehiculo vehiculo){
-        vehiculo.modificarFechaIngreso(Calendar.getInstance());
-        validarIngresoMoto(vehiculo);
-        motoRepositorio.guardarVehiculo(vehiculo);
+        servicioEntradaParqueadero.guardarMoto(vehiculo);
     }
 
     public List<Vehiculo> obtenerMotos () {
-        return motoRepositorio.obtenerVehiculos();
+        return servicioEntradaParqueadero.obtenerMotos();
     }
 
     public int obtenerCantidadMotos () {
-        return motoRepositorio.obtenerCantidadVehiculos();
+        return servicioEntradaParqueadero.obtenerCantidadMotos();
     }
 
     @Override
     public void validarIngresoMoto(Vehiculo vehiculo) {
-
-        if ((obtenerCantidadMotos()>=parqueadero.obtenerCantidadMaximaMotos())){
-            throw new SinCupoExcepcion();
-        }
-
-
-        parqueadero.validarIngresoVehiculo(vehiculo, Calendar.getInstance());
+        servicioEntradaParqueadero.validarIngresoMoto(vehiculo);
     }
 }

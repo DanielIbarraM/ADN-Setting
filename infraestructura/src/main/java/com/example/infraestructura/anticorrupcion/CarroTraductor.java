@@ -11,8 +11,8 @@ public class CarroTraductor {
     public static Carro mapearCarroBdACarroDominio (CarroBd carroBd) throws Exception{
         if (carroBd==null) throw new NullPointerException();
         Carro carro = new Carro(carroBd.obtenerPlaca());
-        carro.modificarFechaIngreso(GeneralTraductor.mapearDeLongACalendar(carroBd.obtenerFechaIngreso()));
-        carro.modificarFechaSalida(GeneralTraductor.mapearDeLongACalendar(carroBd.obtenerFechaSalida()));
+        carro.modificarFechaIngreso(TraductorComun.mapearDeLongACalendar(carroBd.obtenerFechaIngreso()));
+        carro.modificarFechaSalida(TraductorComun.mapearDeLongACalendar(carroBd.obtenerFechaSalida()));
         return carro;
     }
 
@@ -20,8 +20,8 @@ public class CarroTraductor {
         if (carro == null) throw new NullPointerException();
         CarroBd carroBd = new CarroBd();
         carroBd.modificarPlaca(carro.obtenerPlaca());
-        carroBd.modificarFechaIngreso(GeneralTraductor.mapeaDeCalendarALong(carro.obtenerFechaIngreso()));
-        carroBd.modificarFechaSalida(GeneralTraductor.mapeaDeCalendarALong(carro.obtenerFechaSalida()));
+        carroBd.modificarFechaIngreso(TraductorComun.mapeaDeCalendarALong(carro.obtenerFechaIngreso()));
+        carroBd.modificarFechaSalida(TraductorComun.mapeaDeCalendarALong(carro.obtenerFechaSalida()));
         return carroBd;
     }
 

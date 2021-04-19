@@ -7,7 +7,7 @@ import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorPrincip
 import com.example.dominio.modelo.Moto;
 import com.example.dominio.modelo.Vehiculo;
 import com.example.dominio.repositorio.VehiculoRepositorio;
-import com.example.dominio.servicio.ParqueaderoServicio;
+import com.example.dominio.servicio.ServicioParqueadero;
 import com.example.infraestructura.repositorio.CarroRepositorioRoom;
 import com.example.infraestructura.repositorio.MotoRepositorioRoom;
 
@@ -21,7 +21,7 @@ public class RepositorioPrincipalParqueadero implements RepositorioPrincipal {
     private Context contexto;
     private VehiculoRepositorio vehiculoRepositorioCarro;
     private VehiculoRepositorio vehiculoRepositorioMoto;
-    private ParqueaderoServicio parqueaderoServicio;
+    private ServicioParqueadero servicioParqueadero;
     private List<Vehiculo> vehiculoLista;
 
     public RepositorioPrincipalParqueadero (PresentadorPrincipal presentador, Context contexto) {
@@ -29,15 +29,15 @@ public class RepositorioPrincipalParqueadero implements RepositorioPrincipal {
         this.contexto = contexto;
         this.vehiculoRepositorioCarro = new CarroRepositorioRoom(contexto);
         this.vehiculoRepositorioMoto = new MotoRepositorioRoom(contexto);
-        parqueaderoServicio = new ParqueaderoServicio(vehiculoRepositorioCarro, vehiculoRepositorioMoto);
+        servicioParqueadero = new ServicioParqueadero(vehiculoRepositorioCarro, vehiculoRepositorioMoto);
         vehiculoLista = new ArrayList<>();
     }
 
     @Override
     public void obtenerVehiculos() {
         vehiculoLista.clear();
-        vehiculoLista.addAll(parqueaderoServicio.obtenerCarros());
-        vehiculoLista.addAll(parqueaderoServicio.obtenerMotos());
+        vehiculoLista.addAll(servicioParqueadero.obtenerCarros());
+        vehiculoLista.addAll(servicioParqueadero.obtenerMotos());
         ordenarListaPorFechaDescendente(vehiculoLista);
         presentador.mostrarVehiculos(vehiculoLista);
     }
@@ -51,33 +51,33 @@ public class RepositorioPrincipalParqueadero implements RepositorioPrincipal {
     @Override
     public void eliminarVehiculo(Vehiculo vehiculo) {
         if (vehiculo instanceof Moto) {
-            parqueaderoServicio.eliminarMoto(vehiculo);
+            servicioParqueadero.eliminarMoto(vehiculo);
         } else {
-            parqueaderoServicio.eliminarCarro(vehiculo);
+            servicioParqueadero.eliminarCarro(vehiculo);
         }
     }
 
     @Override
     public int obtenerCantidadCarros() {
-        return parqueaderoServicio.obtenerCantidadCarros();
+        return servicioParqueadero.obtenerCantidadCarros();
     }
 
     @Override
     public int obtenerCantidadMotos() {
-        return parqueaderoServicio.obtenerCantidadMotos();
+        return servicioParqueadero.obtenerCantidadMotos();
     }
 
     @Override
     public void ingresarVehiculo(Vehiculo vehiculo) {
         if (vehiculo instanceof Moto) {
-            parqueaderoServicio.guardarMoto(vehiculo);
+            servicioParqueadero.guardarMoto(vehiculo);
         } else {
-            parqueaderoServicio.guardarCarro(vehiculo);
+            servicioParqueadero.guardarCarro(vehiculo);
         }
     }
 
     @Override
     public int calcularTotalVehiculo(Vehiculo vehiculo) {
-        return parqueaderoServicio.calcularValorTotal(vehiculo);
+        return servicioParqueadero.calcularValorTotal(vehiculo);
     }
 }

@@ -65,7 +65,4 @@ public abstract class CobrarParqueaderoBase {
         this.parqueadero = parqueadero;
     }
 
-    protected Parqueadero obtenerParqueadero () {
-        return parqueadero;
-    }
 }

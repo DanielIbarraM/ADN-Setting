@@ -1,6 +1,6 @@
 package com.example.adn_danielibarra.mvp.vista.contratos;
 
-public interface VistaGeneral {
+public interface VistaComun {
 
     void mostrarDialogoAlerta(int titulo, int mensaje);
 

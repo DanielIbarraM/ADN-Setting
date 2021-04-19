@@ -12,7 +12,7 @@ import java.util.Calendar;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class CobrarParqueaderoServicioMotoTest {
+public class CobrarServicioParqueaderoMotoTest {
 
     Parqueadero parqueadero;
     Calendar calendar;

@@ -2,7 +2,7 @@ package com.example.infraestructura.anticorrupcion;
 
 import java.util.Calendar;
 
-public class GeneralTraductor {
+public class TraductorComun {
 
     public static Calendar mapearDeLongACalendar (long tiempo){
         Calendar calendar = Calendar.getInstance();
