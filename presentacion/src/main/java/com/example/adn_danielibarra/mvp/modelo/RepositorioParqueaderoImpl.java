@@ -78,4 +78,13 @@ public class RepositorioParqueaderoImpl implements RepositorioParqueadero {
     public int calcularTotalVehiculo(Vehiculo vehiculo) {
         return servicioParqueaderoBase.calcularValorTotal(vehiculo);
     }
+
+    @Override
+    public Vehiculo obtenerVehiculo(String placa) {
+        Vehiculo vehiculo = vehiculoRepositorioCarro.obtenerVehiculo(placa);
+        if (vehiculo == null) {
+            vehiculo = vehiculoRepositorioMoto.obtenerVehiculo(placa);
+        }
+        return vehiculo;
+    }
 }

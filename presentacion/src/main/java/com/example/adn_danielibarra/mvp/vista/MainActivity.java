@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -50,16 +49,6 @@ public class MainActivity extends AppCompatActivity implements VistaParqueadero 
 
     }
 
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-    }
-
     private void inicializar() {
         btnIngresar = findViewById(R.id.btn_ingresar);
         vistaReciclada = findViewById(R.id.recyclerView);
@@ -73,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements VistaParqueadero 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         ObtenerVehiculoIngresado obtenerVehiculoIngresado = vehiculo -> ingresarVehiculo(vehiculo);
-        dialogoIngresar = new DialogoIngresar(obtenerVehiculoIngresado);
+        VerificarVehiculo verificarVehiculo = placa -> presentador.obtenerVehiculo(placa);
+        dialogoIngresar = new DialogoIngresar(obtenerVehiculoIngresado, verificarVehiculo);
         presentador = new PresentadorParqueaderoImpl(this, getApplicationContext());
         btnIngresar.setOnClickListener(v -> {
             dialogoIngresar.show(getSupportFragmentManager(), "");

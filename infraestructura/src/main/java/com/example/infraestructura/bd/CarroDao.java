@@ -23,4 +23,7 @@ public interface CarroDao {
     @Query("SELECT COUNT(*) FROM tabla_carro")
     int obtenerCantidadCarros();
 
+    @Query("SELECT * FROM tabla_carro WHERE placa = :placa")
+    CarroBd obtenerCarro(String placa);
+
 }

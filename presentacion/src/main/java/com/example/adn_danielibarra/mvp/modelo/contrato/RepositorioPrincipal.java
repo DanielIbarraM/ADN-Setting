@@ -2,9 +2,9 @@ package com.example.adn_danielibarra.mvp.modelo.contrato;
 
 import com.example.dominio.modelo.Vehiculo;
 
-public interface RepositorioParqueadero {
+public interface RepositorioPrincipal {
 
-    void obtenerVehiculos();
+    void obtenerVehiculos ();
 
     void eliminarVehiculo(Vehiculo vehiculo);
 
@@ -12,9 +12,9 @@ public interface RepositorioParqueadero {
 
     int obtenerCantidadMotos();
 
-    void ingresarVehiculo(Vehiculo vehiculo);
+    void ingresarVehiculo (Vehiculo vehiculo);
 
-    int calcularTotalVehiculo(Vehiculo vehiculo);
+    int calcularTotalVehiculo (Vehiculo vehiculo);
 
-    Vehiculo obtenerVehiculo (String Placa);
+    Vehiculo obtenerVehiculo(String placa);
 }

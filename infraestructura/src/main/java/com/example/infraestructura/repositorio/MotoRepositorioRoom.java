@@ -64,6 +64,15 @@ public class MotoRepositorioRoom implements VehiculoRepositorio {
         return cantidadMotos;
     }
 
+    @Override
+    public Vehiculo obtenerVehiculo(String placa) {
+        try {
+            return MotoTraductor.mapearMotoBdAMotoDominio(motoDao.obtenerMoto(placa));
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
     class ConsultaListaMotoAsincronica extends AsyncTask<Void, Void, List<MotoBd>> {
         @Override
         protected List<MotoBd> doInBackground(Void... voids) {

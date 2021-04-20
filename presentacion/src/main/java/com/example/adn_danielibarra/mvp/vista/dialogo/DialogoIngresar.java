@@ -15,6 +15,7 @@ import androidx.fragment.app.DialogFragment;
 import com.example.adn_danielibarra.R;
 import com.example.adn_danielibarra.mvp.vista.MainActivity;
 import com.example.adn_danielibarra.mvp.vista.ObtenerVehiculoIngresado;
+import com.example.adn_danielibarra.mvp.vista.VerificarVehiculo;
 import com.example.dominio.modelo.Carro;
 import com.example.dominio.modelo.Moto;
 import com.example.dominio.modelo.Vehiculo;
@@ -33,9 +34,11 @@ public class DialogoIngresar extends DialogFragment {
     MainActivity mainActivity;
     ObtenerVehiculoIngresado obtenerVehiculoIngresado;
     Vehiculo vehiculo;
+    VerificarVehiculo verificarVehiculo;
 
-    public DialogoIngresar(ObtenerVehiculoIngresado obtenerVehiculoIngresado) {
+    public DialogoIngresar(ObtenerVehiculoIngresado obtenerVehiculoIngresado, VerificarVehiculo verificarVehiculo) {
         this.obtenerVehiculoIngresado = obtenerVehiculoIngresado;
+        this.verificarVehiculo =  verificarVehiculo;
     }
 
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class DialogoIngresar extends DialogFragment {
         return builder.create();
     }
 
-    private void inicializar(View vista) {
+    private void inicializar (View vista) {
         radioCarro = vista.findViewById(R.id.tipoCarro);
         radioMoto = vista.findViewById(R.id.tipoMoto);
         contenedorCilindraje = vista.findViewById(R.id.contenedorCilindraje);
@@ -61,7 +64,9 @@ public class DialogoIngresar extends DialogFragment {
             dismiss();
         });
         btnRegistrar.setOnClickListener(v -> {
-            validarDatos();
+            if (!validarDatos()) {
+                return;
+            }
             crearVehiculo(etPlaca.getText().toString(), etCilindraje.getText().toString());
             obtenerVehiculoIngresado.obtenerVehiculo(vehiculo);
             dismiss();
@@ -75,14 +80,27 @@ public class DialogoIngresar extends DialogFragment {
         });
     }
 
-    private void validarDatos() {
-        if (etPlaca.getText().toString().isEmpty()) {
+    private boolean validarDatos () {
+        if (etPlaca.getText().toString().isEmpty()){
             mainActivity.mostrarDialogoAlerta(R.string.informacion, "Ingrese placa del vehiculo");
-            return;
+            return false;
         }
-        if (radioMoto.isChecked() && etCilindraje.getText().toString().isEmpty()) {
+
+        if (!(etPlaca.getText().toString().length() >= 6 && etPlaca.getText().toString().length() <=10)){
+            mainActivity.mostrarDialogoAlerta(R.string.informacion, "La placa debe contener de 6  a 10 caracteres");
+            return false;
+        }
+
+        if (verificarVehiculo.verificarExistenciaVehiculo(etPlaca.getText().toString())){
+            mainActivity.mostrarDialogoAlerta(R.string.informacion, "Este vehiculo ya está registrado");
+            return false;
+        }
+
+        if (radioMoto.isChecked() && etCilindraje.getText().toString().isEmpty()){
             mainActivity.mostrarDialogoAlerta(R.string.informacion, "Ingrese cilindraje de la moto");
+            return false;
         }
+        return true;
     }
 
     private void crearVehiculo(String placa, String cilindraje) {

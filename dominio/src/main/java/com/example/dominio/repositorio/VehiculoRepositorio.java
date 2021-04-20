@@ -13,4 +13,6 @@ public interface VehiculoRepositorio {
     void eliminarVehiculo(Vehiculo vehiculo);
 
     int obtenerCantidadVehiculos();
+
+    Vehiculo obtenerVehiculo (String placa);
 }

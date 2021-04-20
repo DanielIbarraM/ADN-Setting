@@ -77,6 +77,15 @@ public class CarroRepositorioRoom implements VehiculoRepositorio {
         return cantidadCarros;
     }
 
+    @Override
+    public Vehiculo obtenerVehiculo(String placa) {
+        try {
+            return CarroTraductor.mapearCarroBdACarroDominio(carroDao.obtenerCarro(placa));
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
     class ConsultaListaCarrosAsincronica extends AsyncTask<Void, Void, List<CarroBd>> {
         @Override
         protected List<CarroBd> doInBackground(Void... voids) {

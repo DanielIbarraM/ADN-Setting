@@ -19,4 +19,6 @@ public interface PresentadorParqueadero {
     void ingresarVehiculo(Vehiculo vehiculo);
 
     int calcularTotal(Vehiculo vehiculo);
+
+    boolean obtenerVehiculo(String placa);
 }

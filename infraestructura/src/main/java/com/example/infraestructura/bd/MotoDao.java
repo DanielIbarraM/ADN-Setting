@@ -20,7 +20,10 @@ public interface MotoDao {
     @Query("DELETE FROM tabla_moto WHERE placa = :placa")
     void eliminarMoto(String placa);
 
-    @Query("SELECT COUNT(*) FROM tabla_carro")
+    @Query("SELECT COUNT(*) FROM tabla_moto")
     int obtenerCantidadMotos();
+
+    @Query("SELECT * FROM tabla_moto WHERE placa = :placa")
+    MotoBd obtenerMoto(String placa);
 
 }

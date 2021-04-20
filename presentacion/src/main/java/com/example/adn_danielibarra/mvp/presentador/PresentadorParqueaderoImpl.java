@@ -68,4 +68,12 @@ public class PresentadorParqueaderoImpl implements PresentadorParqueadero {
     public int calcularTotal(Vehiculo vehiculo) {
         return repositorio.calcularTotalVehiculo(vehiculo);
     }
+
+    @Override
+    public boolean obtenerVehiculo(String placa) {
+        if (repositorio.obtenerVehiculo(placa) == null){
+            return false;
+        }
+        return true;
+    }
 }
