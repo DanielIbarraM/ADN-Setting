@@ -3,15 +3,12 @@ package com.example.adn_danielibarra.mvp.vista;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adn_danielibarra.R;
+import com.example.adn_danielibarra.databinding.ItemVehiculoBinding;
 import com.example.dominio.modelo.Moto;
 import com.example.dominio.modelo.Vehiculo;
 
@@ -39,7 +36,7 @@ public class AdaptadorVehiculo extends RecyclerView.Adapter<AdaptadorVehiculo.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_vehiculo, parent, false));
+        return new ViewHolder(ItemVehiculoBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
@@ -54,41 +51,29 @@ public class AdaptadorVehiculo extends RecyclerView.Adapter<AdaptadorVehiculo.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        CardView tarjetaContenedora;
-        TextView placa;
-        TextView fechaIngreso;
-        TextView tipoVehiculo;
-        TextView cilindraje;
+        ItemVehiculoBinding binding;
         Vehiculo vehiculo;
-        Button btnCobrar;
-        LinearLayout linCilindraje;
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tarjetaContenedora = itemView.findViewById(R.id.card_contenedor);
-            placa = itemView.findViewById(R.id.tv_placa);
-            fechaIngreso = itemView.findViewById(R.id.tv_fecha_ingreso);
-            tipoVehiculo = itemView.findViewById(R.id.tv_tipo_vehiculo);
-            linCilindraje = itemView.findViewById(R.id.lin_cilindraje);
-            btnCobrar = itemView.findViewById(R.id.btn_cobrar);
-            cilindraje = itemView.findViewById(R.id.tv_cilindraje);
-            btnCobrar.setOnClickListener(v -> {
+        public ViewHolder(ItemVehiculoBinding bindingTemp) {
+            super(bindingTemp.getRoot());
+            this.binding = bindingTemp;
+            binding.btnCobrar.setOnClickListener(v -> {
                 vehiculoIngresado.obtenerVehiculo(vehiculo);
             });
         }
 
         public void llenarDatos(int posicion) {
             this.vehiculo = vehiculoLista.get(posicion);
-            placa.setText(vehiculo.obtenerPlaca());
-            fechaIngreso.setText(vehiculo.obtenerFechaIngreso().getTime().toString());
+            binding.tvPlaca.setText(vehiculo.obtenerPlaca());
+            binding.tvFechaIngreso.setText(vehiculo.obtenerFechaIngreso().getTime().toString());
             if (vehiculo instanceof Moto) {
-                tipoVehiculo.setText(R.string.moto);
-                linCilindraje.setVisibility(View.VISIBLE);
-                cilindraje.setText(String.valueOf(((Moto) vehiculo).obtenerCilindraje()));
+                binding.tvTipoVehiculo.setText(R.string.moto);
+                binding.linCilindraje.setVisibility(View.VISIBLE);
+                binding.tvCilindraje.setText(String.valueOf(((Moto) vehiculo).obtenerCilindraje()));
 
             } else {
-                tipoVehiculo.setText(R.string.carro);
-                linCilindraje.setVisibility(View.GONE);
+                binding.tvTipoVehiculo.setText(R.string.carro);
+                binding.linCilindraje.setVisibility(View.GONE);
             }
         }
 

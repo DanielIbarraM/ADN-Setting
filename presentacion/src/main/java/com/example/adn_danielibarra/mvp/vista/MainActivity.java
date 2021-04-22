@@ -5,17 +5,14 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adn_danielibarra.R;
+import com.example.adn_danielibarra.databinding.ActivityMainBinding;
 import com.example.adn_danielibarra.mvp.presentador.PresentadorParqueaderoImpl;
 import com.example.adn_danielibarra.mvp.presentador.contratos.PresentadorParqueadero;
 import com.example.adn_danielibarra.mvp.vista.contratos.VistaParqueadero;
@@ -28,19 +25,17 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements VistaParqueadero {
 
     private ProgressDialog progressDialog;
-    RecyclerView vistaReciclada;
-    ImageView imagenListaVacia;
-    TextView tvCantidadCarros;
-    TextView tvCantidadMotos;
     AdaptadorVehiculo adaptadorVehiculo;
     PresentadorParqueadero presentador;
-    Button btnIngresar;
     DialogoIngresar dialogoIngresar;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         inicializar();
         obtenerVehiculos();
@@ -50,22 +45,17 @@ public class MainActivity extends AppCompatActivity implements VistaParqueadero 
     }
 
     private void inicializar() {
-        btnIngresar = findViewById(R.id.btn_ingresar);
-        vistaReciclada = findViewById(R.id.recyclerView);
-        imagenListaVacia = findViewById(R.id.img_lista_vacia);
-        tvCantidadCarros = findViewById(R.id.tv_cant_carros);
-        tvCantidadMotos = findViewById(R.id.tv_cant_motos);
         ObtenerVehiculoIngresado obtenerVehiculoAdaptador = this::eliminarVehiculo;
         adaptadorVehiculo = new AdaptadorVehiculo(new ArrayList<>(), obtenerVehiculoAdaptador);
-        vistaReciclada.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        vistaReciclada.setAdapter(adaptadorVehiculo);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        binding.recyclerView.setAdapter(adaptadorVehiculo);
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         ObtenerVehiculoIngresado obtenerVehiculoIngresado = vehiculo -> ingresarVehiculo(vehiculo);
         VerificarVehiculo verificarVehiculo = placa -> presentador.obtenerVehiculo(placa);
         dialogoIngresar = new DialogoIngresar(obtenerVehiculoIngresado, verificarVehiculo);
         presentador = new PresentadorParqueaderoImpl(this, getApplicationContext());
-        btnIngresar.setOnClickListener(v -> {
+        binding.btnIngresar.setOnClickListener(v -> {
             dialogoIngresar.show(getSupportFragmentManager(), "");
         });
     }
@@ -80,16 +70,16 @@ public class MainActivity extends AppCompatActivity implements VistaParqueadero 
     public void mostrarVehiculos(List<Vehiculo> vehiculoLista) {
         System.out.println("tamaño de vehiculo ---" + vehiculoLista.size());
         cancelarDialogoCargando();
-        vistaReciclada.setVisibility(View.VISIBLE);
-        imagenListaVacia.setVisibility(View.GONE);
+        binding.recyclerView.setVisibility(View.VISIBLE);
+        binding.imgListaVacia.setVisibility(View.GONE);
         adaptadorVehiculo.modificarVehiculoLista(vehiculoLista);
     }
 
     @Override
     public void mostrarSinVehiculos() {
         cancelarDialogoCargando();
-        vistaReciclada.setVisibility(View.GONE);
-        imagenListaVacia.setVisibility(View.VISIBLE);
+        binding.recyclerView.setVisibility(View.GONE);
+        binding.imgListaVacia.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -99,12 +89,12 @@ public class MainActivity extends AppCompatActivity implements VistaParqueadero 
 
     @Override
     public void obtenerCantidadCarros() {
-        tvCantidadCarros.setText(String.valueOf(presentador.obtenerCantidadCarros()));
+        binding.tvCantCarros.setText(String.valueOf(presentador.obtenerCantidadCarros()));
     }
 
     @Override
     public void obtenerCantidadMotos() {
-        tvCantidadMotos.setText(String.valueOf(presentador.obtenerCantidadMotos()));
+        binding.tvCantMotos.setText(String.valueOf(presentador.obtenerCantidadMotos()));
     }
 
     @Override
